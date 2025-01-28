@@ -1,8 +1,11 @@
+import About from "@/components/about";
+import Hero from "@/components/Hero";
 
 export default function Home() {
   return (
-    <div className="flexCenter h-[999px]">
-      Hello hero
-    </div>
+   <>
+    <Hero />
+    <About />
+   </>
   );
 }

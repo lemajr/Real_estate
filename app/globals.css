@@ -79,7 +79,7 @@
   }
 
   .btn-secondary  { 
-    @apply  ring-1 ring-secondary medium-15 bg-secondary px-7 py-[10px] text-white transition-all hover:bg-tertiary hover:ring-tertiary 
+    @apply  ring-1 ring-secondary medium-15 bg-green-500 px-7 py-[10px] text-white transition-all hover:bg-tertiary hover:ring-tertiary 
   }
   .btn-secondary-outline  { 
     @apply  ring-1 ring-secondary medium-15 bg-white px-7 py-[10px] text-secondary transition-all hover:bg-tertiary hover:ring-tertiary 
