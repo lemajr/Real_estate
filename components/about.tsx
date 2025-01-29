@@ -1,60 +1,63 @@
 'use client'
 
 import Image from "next/image";
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import aboutImage from "@/public/assets/about.jpg";
 import { RiDoubleQuotesL } from "react-icons/ri";
 import CountUp from "react-countup";
 
-
 interface Statistic {
+  label: string;
   value: number;
 }
 
 const statistics: Statistic[] = [
   {
     label: "Happy Clients",
-    value: 1000,
-  },
-  {
-    label: "Projects Completed",
     value: 100,
   },
   {
+    label: "Projects Completed",
+    value: 11,
+  },
+  {
     label: "Years of Experience",
-    value: 10,
+    value: 4,
+  },
+  {
+    label: "Awards Won",
+    value: 5,
   },
 ];
 
 const About = () => {
-
-  const [isVisible, seIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const aboutSection = document.querySelector("about");
-      if(aboutSection) {
+      const aboutSection = document.querySelector("#about");
+      if (aboutSection) {
         const top = aboutSection.getBoundingClientRect().top;
         const isVisible = top < window.innerHeight - 100;
-        seIsVisible(isVisible);
+        setIsVisible(isVisible);
       }
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
-    }
+    };
   }, []);
 
   return (
-    <section className="max-padd-container py-16 xl:py-28">
+    <section id="about" className="max-padd-container py-16 xl:py-28">
       <div className="flex flex-col xl:flex-row gap-10">
         <div className="flex-1 relative">
           <Image
             src={aboutImage}
-            alt=""
-            width={100}
-            height={100}
+            alt="About Us"
+            width={488}
+            height={488}
             className="rounded-3xl rounded-tr-[155px] w-[488px]"
           />
           <div className="bg-white absolute bottom-16 left-16 max-w-xs p-4 rounded-xl flexCenter flex-col">
@@ -68,29 +71,28 @@ const About = () => {
           </div>
         </div>
         {/* right side */}
-        <div>
-          <span>Unveiling Our Journry</span>
-          <h2>Our Commitment Craft Extraordinary Real Easte Experiences </h2>
-          <p>
+        <div className="flex-1 flex justify-center flex-col">
+          <span className="medium-18">Unveiling Our Journey</span>
+          <h2 className="h2 ">Our Commitment: Craft Extraordinary Real Estate Experiences</h2>
+          <p className="my-5">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
             voluptas a soluta, laboriosam, rerum voluptatibus eius velit
             aspernatur animi facilis eum minus quae numquam ex libero veritatis
             aliquid, ipsum exercitationem. Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. Numquam dignissimos unde nobis odio?
-            Aliquid eum iure provident, aspernatur illum mollitia magnam,
-            asperiores debitis commodi incidunt cumque enim modi deleniti
-            minima.
+            consectetur adipisicing elit. 
           </p>
-          <div>
-            { statistics.map((statistic, index) => (
-              <div key={index}>
-                <div>
-                  <CountUp start={isVisible ? 0 : undefined} end={statistic.value} duration={10} delay={3}>
-                    {({ countUpRef }) => (
-                      <h3 ref={countUpRef} className="text-2xl font-semibold"></h3>
-                    )}
-                  </CountUp>
+          <div className="flex flex-wrap gap-4">
+            {statistics.map((statistic, index) => (
+              <div key={index} className="bg-[#f8f9fa] p-4 rounded-[6px]">
+                <div className="flex items-center gap-1">
+                <CountUp start={isVisible ? 0 : undefined} end={statistic.value} duration={10} delay={3}>
+                  {({ countUpRef }) => (
+                    <h3 ref={countUpRef as React.RefObject<HTMLHeadingElement>} className="text-2xl font-semibold"></h3>
+                  )}
+                </CountUp>
+                <h2 className="bold-22">k+</h2>
                 </div>
+                <p className="text-gray-600">{statistic.label}</p>
               </div>
             ))}
           </div>

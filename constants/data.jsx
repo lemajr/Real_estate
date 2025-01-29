@@ -1,12 +1,12 @@
-import img1 from '../assets/img1.png'
-import img2 from '../assets/img2.png'
-import img3 from '../assets/img3.png'
-import img4 from '../assets/img4.png'
-import img5 from '../assets/img5.png'
-import blog1 from '../assets/blog1.jpg'
-import blog2 from '../assets/blog2.jpg'
-import blog3 from '../assets/blog3.jpg'
-import blog4 from '../assets/blog4.jpg'
+import img1 from '@/public/assets/img1.png'
+import img2 from '@/public/assets/img2.png'
+import img3 from '@/public/assets/img3.png'
+import img4 from '@/public/assets/img4.png'
+import img5 from '@/public/assets/img5.png'
+import blog1 from '@/public/assets//blog1.jpg'
+import blog2 from '@/public/assets//blog2.jpg'
+import blog3 from '@/public/assets//blog3.jpg'
+import blog4 from '@/public/assets//blog4.jpg'
 
 // icons
 import {
