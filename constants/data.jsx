@@ -199,9 +199,6 @@ export const FOOTER_LINKS = [
       "About Us",
       "Latest Items",
       "Hot Offers",
-      "Popular residencies",
-      "FAQ",
-      "Privacy Policy",
     ],
   },
   {
@@ -228,7 +225,7 @@ export const SOCIALS = {
     { icon: <FaFacebook />, id: "facebook" },
     { icon: <FaInstagram />, id: "instagram" },
     { icon: <FaTwitter />, id: "twitter" },
-    { icon: <FaYoutube />, id: "youtube" },
-    { icon: <FaLinkedin />, id: "linkedin" },
+    // { icon: <FaYoutube />, id: "youtube" },
+    // { icon: <FaLinkedin />, id: "linkedin" },
   ],
 };
