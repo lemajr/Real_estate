@@ -4,7 +4,23 @@ import HeartBtn from './HeartBtn'
 import { MdOutlineBathroom, MdOutlineBed, MdOutlineGarage } from 'react-icons/md'
 import Link from 'next/link'
 
-const Item = ({ property }: any) => {
+interface ItemProps {
+  property: {
+    id: number;
+    title: string;
+    city: string;
+    image: string;
+    facilities: {
+      bedrooms: number;
+      bathroom: number;
+      parkings: number;
+    };
+    description: string;
+    price: number;
+  };
+}
+
+const Item = ({ property }: ItemProps) => {
   return (
    <div className='rounded-2xl p-5 bg-white font-montserrat'>
      <div className='pbb-2 relative'>
