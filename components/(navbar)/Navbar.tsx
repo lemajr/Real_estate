@@ -5,6 +5,9 @@ import { usePathname } from 'next/navigation'
 import { MdAddHome, MdHomeWork, MdPermContactCalendar } from 'react-icons/md';
 import { RiCheckboxMultipleBlankFill } from 'react-icons/ri';
 
+interface NavbarProps {
+  containerStyles?: string; 
+}
 
 
 const links = [
@@ -14,7 +17,7 @@ const links = [
   { href: '/', label: 'Property',iconNames: <MdAddHome /> },
 ];
 
-const Navbar = ({ containerStyles }: any) => {
+const Navbar = ({ containerStyles }: NavbarProps) => {
   
   const pathname = usePathname();
 
