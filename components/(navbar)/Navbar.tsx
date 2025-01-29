@@ -12,7 +12,7 @@ const links = [
   { href: '/', label: 'Home', iconNames: <MdHomeWork />},
   { href: '/listing', label: 'Listing', iconNames: <RiCheckboxMultipleBlankFill/>},
   { href: '/contact', label: 'Contact', iconNames: <MdPermContactCalendar /> },
-  { href: '/add-property', label: 'Property',iconNames: <MdAddHome /> },
+  { href: '/', label: 'Property',iconNames: <MdAddHome /> },
 ];
 
 const Navbar = ({ containerStyles }: any) => {

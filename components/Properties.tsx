@@ -20,7 +20,7 @@ const Properties = () => {
         <h5 >
             <span className="font-bold">Show 1-9</span> out of 3k properties
         </h5>
-        <Link href={'/'} className="bg-white text-3x rounded-md h-10 w-10 p-2 border"><VscSettings /></Link>
+        <span className="bg-white flex justify-center items-center text-3x rounded-md h-10 w-10 p-2 border"><VscSettings /></span>
       </div>
       {/* swiper-container */}
       <Swiper

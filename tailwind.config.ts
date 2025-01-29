@@ -9,12 +9,24 @@ export default {
   ],
   theme: {
   	extend: {
-		fontFamily: {
-			poppins: ["var(--font-poppins)", "sans-serif"],
-			montserrat: ["var(--font-montserrat)", "sans-serif"],
-			geistSans: ["var(--font-geist-sans)", "sans-serif"],
-			geistMono: ["var(--font-geist-mono)", "monospace"],
-		  },
+  		fontFamily: {
+  			poppins: [
+  				'var(--font-poppins)',
+  				'sans-serif'
+  			],
+  			montserrat: [
+  				'var(--font-montserrat)',
+  				'sans-serif'
+  			],
+  			geistSans: [
+  				'var(--font-geist-sans)',
+  				'sans-serif'
+  			],
+  			geistMono: [
+  				'var(--font-geist-mono)',
+  				'monospace'
+  			]
+  		},
   		colors: {
   			primary: {
   				DEFAULT: 'hsl(var(--primary))',
