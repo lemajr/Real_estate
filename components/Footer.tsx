@@ -1,4 +1,4 @@
-import { FOOTER_CONTACT_INFO, FOOTER_LINKS, SOCIALS } from "@/constants/data";
+import { FOOTER_LINKS, SOCIALS } from "@/constants/data";
 import Link from "next/link";
 import React from "react";
 

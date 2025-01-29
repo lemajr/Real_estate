@@ -1,6 +1,5 @@
 'use client'
 
-import Link from "next/link";
 import React from "react";
 import { VscSettings } from "react-icons/vsc";
 import { Autoplay } from "swiper/modules";

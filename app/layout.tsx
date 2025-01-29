@@ -4,11 +4,6 @@ import "./globals.css";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
@@ -34,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${montserrat} ${poppins} antialiased`}
+        className={`${montserrat} ${poppins} antialiased`}
       >
         <Header />
         {children}

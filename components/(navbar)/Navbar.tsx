@@ -1,6 +1,5 @@
 'use client'
 
-import { ArrowBigDown } from 'lucide-react';
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { MdAddHome, MdHomeWork, MdPermContactCalendar } from 'react-icons/md';

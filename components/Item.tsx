@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 import HeartBtn from './HeartBtn'
-import { MdOutlineBathroom, MdOutlineBed, MdOutlineBedroomBaby, MdOutlineGarage } from 'react-icons/md'
+import { MdOutlineBathroom, MdOutlineBed, MdOutlineGarage } from 'react-icons/md'
 import Link from 'next/link'
 
 const Item = ({ property }: any) => {
