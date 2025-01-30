@@ -12,8 +12,8 @@ const Contact = () => {
   const [phoneNumber, setPhoneNumber] = useState<string>(""); // State for phone number
 
   return (
-    <main className="max-padd-container my-[99px] overflow-hidden">
-      <div className="relative max-md:py-2 xl:py-22 w-full ">
+    <main className="relative max-padd-container my-[99px] overflow-hidden">
+      <div className=" max-md:py-2 xl:py-22 w-full bg-[#f8f9fa] ">
         <div className="py-12 z-10">
           <div className="max-w-3xl mx-auto text-center pb-8">
             <h2 className="h2">Contact our team</h2>
@@ -23,8 +23,8 @@ const Contact = () => {
               quaerat.
             </h5>
           </div>
-          <div className="max-w-4xl mx-auto flex flex-wrap gap-[6rem]  mt-16">
-            <div className="flex-1 relative z-20">
+          <div className="max-w-4xl mx-auto flex flex-wrap gap-[6rem] mt-16 ">
+            <div className="flex-1 relative z-40">
               {/* Contact Form */}
               <form action="">
                 <div className="flex gap-3 flex-wrap">
@@ -173,12 +173,12 @@ const Contact = () => {
       </div>
       <InteractiveGridPattern
         className={cn(
-          "[mask-image:radial-gradient(400px_circle_at_center,white,transparent)]"
+          "[mask-image:radial-gradient(600px_circle_at_center,white,transparent)]"
         )}
         width={80}
         height={80}
         squares={[80, 80]}
-        squaresClassName="hover:fill-black"
+        squaresClassName=""
       />
     </main>
   );

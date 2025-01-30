@@ -40,7 +40,7 @@ export function InteractiveGridPattern({
       width={width * horizontal}
       height={height * vertical}
       className={cn(
-        "absolute inset-0 h-full w-full max-auto border border-gray-400/30 -z-10",
+        "absolute inset-0 h-full w-full max-auto border border-gray-400/30 z-10",
         className,
       )}
       {...props}

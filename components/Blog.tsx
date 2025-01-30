@@ -12,7 +12,7 @@ const Blog = () => {
       <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mb-24">
         {BLOGS.map((blog) => (
           <div
-            key={blog.title}
+            key={blog.id}
             className="rounded-3xl border-[11px] shadow-sm overflow-hidden relative"
           >
             <Image src={blog.image} alt="" width={400} height={800} />

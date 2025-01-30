@@ -11,6 +11,7 @@ interface Facilities {
 }
 
 interface Property {
+  id: number;
   title: string;
   city: string;
   image: string | StaticImageData; // Use StaticImageData if using Next.js Image

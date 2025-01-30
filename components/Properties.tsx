@@ -47,8 +47,8 @@ const Properties = () => {
             {
             /* swiper-wrapper */
             PROPERTIES.map((property) => (
-                <SwiperSlide key={property.title}>
-                    <Item key={property.title} property={property} />
+                <SwiperSlide key={property.id}>
+                    <Item property={property} />
                 </SwiperSlide>
             ))}
       </Swiper>

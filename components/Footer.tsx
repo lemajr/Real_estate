@@ -38,23 +38,24 @@ const Footer = () => {
             </div>
           </div>
           <div className="flex justify-between flex-wrap gap-8">
-            {FOOTER_LINKS.map((col) => (
-              <FooterColumn key={col.title} title={col.title}>
+          {FOOTER_LINKS.map((col) => (
+              <FooterColumn key={col.id} title={col.title}>
                 {/* urls */}
                 <ul className="flex flex-col gap-4 regular-14 text-gray-20">
                   {col.links.map((link) => (
-                    <Link href={"/"} key={link}>
-                      {link}
+                    <Link href={link.url} key={link.id}>
+                      {link.label}
                     </Link>
                   ))}
                 </ul>
               </FooterColumn>
             ))}
 
+
             <div className="flex">
               <FooterColumn title={SOCIALS.title}>
                 <ul className="flex gap-4">
-                  {SOCIALS.links.map((link) => (
+                  {SOCIALS.links.map((link,) => (
                     <Link href={"/"} key={link.id} className="text-xl">
                       {link.icon}
                     </Link>
