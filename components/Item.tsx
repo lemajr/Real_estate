@@ -1,26 +1,29 @@
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import React from 'react'
 import HeartBtn from './HeartBtn'
 import { MdOutlineBathroom, MdOutlineBed, MdOutlineGarage } from 'react-icons/md'
 import Link from 'next/link'
 
-interface ItemProps {
-  property: {
-    id: number;
-    title: string;
-    city: string;
-    image: string;
-    facilities: {
-      bedrooms: number;
-      bathroom: number;
-      parkings: number;
-    };
-    description: string;
-    price: number;
-  };
+interface Facilities {
+  bedrooms: number;
+  bathrooms: number; // Ensure this matches the expected type
+  parkings: number;
 }
 
-const Item = ({ property }: ItemProps) => {
+interface Property {
+  title: string;
+  city: string;
+  image: string | StaticImageData; // Use StaticImageData if using Next.js Image
+  facilities: Facilities;
+  description: string;
+  price: number;
+}
+
+interface ItemProps {
+  property: Property;
+}
+
+const Item: React.FC<ItemProps> =  ({ property }) => {
   return (
    <div className='rounded-2xl p-5 bg-white font-montserrat'>
      <div className='pbb-2 relative'>
@@ -37,7 +40,7 @@ const Item = ({ property }: ItemProps) => {
          <span>{property.facilities.bedrooms}</span>
      </div>
      <div className='flexCenter gap-x-2 border-r border-slate-900/50 pr-4 font-[500]'> <MdOutlineBathroom />
-         <span>{property.facilities.bathroom}</span>
+         <span>{property.facilities.bathrooms}</span>
      </div>
      <div className='flexCenter gap-x-2 border-r border-slate-900/50 pr-4 font-[500]'> <MdOutlineGarage />
          <span>{property.facilities.parkings}</span>
