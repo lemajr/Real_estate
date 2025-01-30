@@ -26,15 +26,17 @@ const Footer = () => {
               dolores nostrum velit fuga facilis quod necessitatibus ratione
               voluptatum! 
             </p>
-            <div className="flexBetween pl-6 h-[3.3rem] bg-white w-full max-w-[366px] rounded-full ring-1 ring-slate-500/5">
+            <div className="flex items-center pl-6 max-md:pl-4 h-[3.3rem] bg-white w-full max-w-[366px] mx-auto rounded-full ring-1 ring-slate-500/5">
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="bg-transparent border-none outline-none"
+                className="absolute bg-transparent border-none outline-none"
               />
-              <button className="btn-secondary rounded-full relative right-[0.33rem]">
-                Subbscribe
+             <div className=" w-full flex justify-end">
+             <button className="btn-secondary text-white rounded-full relative">
+                Subscribe
               </button>
+             </div>
             </div>
           </div>
           <div className="flex justify-between flex-wrap gap-8">
