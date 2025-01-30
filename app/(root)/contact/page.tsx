@@ -4,9 +4,12 @@ import React, { useState } from "react";
 import { cn } from "@/lib/utils";
 import { InteractiveGridPattern } from "@/components/ui/interactive-grid-pattern";
 import Link from "next/link";
-import { MdChat, MdFacebook, MdPhone, MdMyLocation, MdEmail } from "react-icons/md";
+import { MdPhone, MdMyLocation } from "react-icons/md";
 import PhoneInput from "react-phone-number-input"; // Import the PhoneInput component
 import "react-phone-number-input/style.css"; // Import the default styles
+import { IoIosSend, IoMdChatboxes } from "react-icons/io";
+import { BsFacebook } from "react-icons/bs";
+
 
 const Contact = () => {
   const [phoneNumber, setPhoneNumber] = useState<string>(""); // State for phone number
@@ -103,46 +106,58 @@ const Contact = () => {
               </form>
             </div>
             <div className="flex-1 space-y-6 relative z-20">
-              <div>
-                <h5 className="medium-18">Chat with us</h5>
-                <p className="py-3">Speak to our friendly team via live chat</p>
-                <ul className="space-y-2">
-                  <li className="flex items-center gap-2">
-                    <MdChat />
-                    <Link
-                      href="https://wa.me/25569500360"
-                      className="underline"
-                    >
-                      Start a live chat
-                    </Link>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <MdEmail />
-                    <Link
-                      href="mailto:support@example.com"
-                      className="underline"
-                    >
-                      Shoot us on email
-                    </Link>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <MdFacebook />
-                    <Link
-                      href="https://facebook.com/yourpage"
-                      className="underline"
-                    >
-                      Message us on Facebook
-                    </Link>
-                  </li>
-                </ul>
-              </div>
+            <div className="font-sans">
+      {/* Heading */}
+      <h5 className="text-2xl font-bold text-gray-800 mb-4">Chat with us</h5>
+      
+      {/* Description */}
+      <p className="text-gray-600 text-lg mb-6">
+        Speak to our friendly team via live chat
+      </p>
+
+      {/* Links */}
+      <ul className="space-y-4">
+        {/* WhatsApp Link */}
+        <li className="flex items-center gap-3">
+          <IoMdChatboxes className="text-2xl " />
+          <Link
+            href="https://wa.me/25569500360"
+            className="text-lg  transition-colors underline underline-offset-8"
+          >
+            Start a live chat
+          </Link>
+        </li>
+
+        {/* Email Link */}
+        <li className="flex items-center gap-3">
+          <IoIosSend className="text-2xl" />
+          <Link
+            href="mailto:support@example.com"
+            className="text-lg transition-colors underline underline-offset-8"
+          >
+            Shoot us on email
+          </Link>
+        </li>
+
+        {/* Facebook Link */}
+        <li className="flex items-center gap-3">
+          <BsFacebook className="text-2xl " />
+          <Link
+            href="https://facebook.com/yourpage"
+            className="text-lg transition-colors underline underline-offset-8"
+          >
+            Message us on Facebook
+          </Link>
+        </li>
+      </ul>
+    </div>
               <div>
                 <h5 className="medium-18">Call us</h5>
                 <p className="py-3">Call our team Mon-Fri from 8am to 5pm</p>
                 <ul className="space-y-2">
                   <li className="flex items-center gap-2">
                     <MdPhone />
-                    <Link href="tel:+25569500360" className="underline">
+                    <Link href="tel:+25569500360" className="">
                       +255 69-500-360
                     </Link>
                   </li>
@@ -160,7 +175,7 @@ const Contact = () => {
                       href="https://www.google.com/maps/search/?api=1&query=100+Science+Street,Dar+es+Salaam,Tanzania"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="underline"
+                      className=""
                     >
                       100 Science Street, Dar es Salaam, 30286
                     </Link>
