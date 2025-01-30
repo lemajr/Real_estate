@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { cn } from "@/lib/utils";
 import { InteractiveGridPattern } from "@/components/ui/interactive-grid-pattern";
 import Link from "next/link";
-import { MdChat, MdFacebook, MdPhone, MdMyLocation } from "react-icons/md";
+import { MdChat, MdFacebook, MdPhone, MdMyLocation, MdEmail } from "react-icons/md";
 import PhoneInput from "react-phone-number-input"; // Import the PhoneInput component
 import "react-phone-number-input/style.css"; // Import the default styles
 
@@ -117,7 +117,7 @@ const Contact = () => {
                     </Link>
                   </li>
                   <li className="flex items-center gap-2">
-                    <MdChat />
+                    <MdEmail />
                     <Link
                       href="mailto:support@example.com"
                       className="underline"
