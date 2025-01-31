@@ -4,11 +4,6 @@ import HeartBtn from "@/components/HeartBtn";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-import {
-  MdOutlineBathroom,
-  MdOutlineBed,
-  MdOutlineGarage,
-} from "react-icons/md";
 import { FaLocationDot } from "react-icons/fa6";
 import MapComponent from "@/components/Map";
 import { fetchPropertyById, Property } from "@/lib/data"; 
@@ -69,20 +64,6 @@ const SingleProperty: React.FC = () => {
             <h4 className="medium-18 line-clamp-1">{property.title}</h4>
             <div className="bold-20">Tsh {property.price}.00</div>
           </div>
-          {/* <div className="flex gap-x-4 py-2">
-            <div className="flexCenter gap-x-2 border-r border-slate-900/50 pr-4 font-[500]">
-              <MdOutlineBed />
-              <span>{property?.facilities.bedrooms}</span>
-            </div>
-            <div className="flexCenter gap-x-2 border-r border-slate-900/50 pr-4 font-[500]">
-              <MdOutlineBathroom />
-              <span>{property?.facilities.bathrooms}</span>
-            </div>
-            <div className="flexCenter gap-x-2 border-r border-slate-900/50 pr-4 font-[500]">
-              <MdOutlineGarage />
-              <span>{property.facilities.parkings}</span>
-            </div>
-          </div> */}
           <p className="pt-2 mb-4 line-clamp-2">{property.description}</p>
           <div className="flexStart gap-x-2 my-5">
             <FaLocationDot />

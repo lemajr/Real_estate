@@ -14,7 +14,7 @@ interface MapProps {
 const MapComponent: React.FC<MapProps> = ({ address, city, country }) => {
   const fullAddress = `${address}, ${city}, ${country}`;
   const [position, setPosition] = useState<[number, number] | null>(null);
-
+  
   useEffect(() => {
     const fetchCoordinates = async () => {
       try {
@@ -35,9 +35,9 @@ const MapComponent: React.FC<MapProps> = ({ address, city, country }) => {
         setPosition([-6.7924, 39.2083]); // Default to Dar es Salaam on error
       }
     };
-
+  
     fetchCoordinates();
-  }, [address, city, country]);
+  }, [fullAddress]); // Add fullAddress to the dependency array
 
   const defaultIcon = icon({
     iconUrl: '/leaflet/marker.png', // Path to your custom marker icon
