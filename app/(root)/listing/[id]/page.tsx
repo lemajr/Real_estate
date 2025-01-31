@@ -16,15 +16,15 @@ const SingleProperty: React.FC = () => {
   useEffect(() => {
     const loadProperty = async () => {
       try {
-        const data = await fetchPropertyById(Number(id)); // Fetch property by id
+        const data = await fetchPropertyById(Number(id)); /
         setProperty(data);
-      } catch (err) {
+      } catch {
         setError("Failed to load property details.");
       } finally {
         setLoading(false);
       }
     };
-
+  
     loadProperty();
   }, [id]);
 
@@ -39,7 +39,6 @@ const SingleProperty: React.FC = () => {
   if (!property) {
     return <p className="text-center text-red-500">Property not found.</p>;
   }
-
   return (
     <section className="max-padd-container my-[99px]">
       {/* Single property card */}
