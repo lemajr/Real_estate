@@ -16,7 +16,7 @@ const SingleProperty: React.FC = () => {
   useEffect(() => {
     const loadProperty = async () => {
       try {
-        const data = await fetchPropertyById(Number(id)); /
+        const data = await fetchPropertyById(Number(id)); 
         setProperty(data);
       } catch {
         setError("Failed to load property details.");
