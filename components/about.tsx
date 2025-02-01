@@ -41,55 +41,50 @@ const About = () => {
               <RiDoubleQuotesL className="text-2xl" />
             </span>
             <p className="text-center relative bottom-3">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Repudiandae assumenda obcaecati ipsum iusto nam.
+            At Blackwill, every detail is a promise of excellence—transforming everyday moments into extraordinary experiences that redefine luxury living.
             </p>
           </div>
         </div>
         {/* right side */}
         <div className="flex-1 flex justify-center flex-col">
-          <span className="medium-18">Unveiling Our Journey</span>
-          <h2 className="h2 ">Our Commitment: Craft Extraordinary Real Estate Experiences</h2>
+          <span className="medium-18">Our Vision Unfolded</span>
+          <h2 className="h2 ">Crafting Unforgettable Hospitality & Real Estate Experiences</h2>
           <p className="my-5">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
-            voluptas a soluta, laboriosam, rerum voluptatibus eius velit
-            aspernatur animi facilis eum minus quae numquam ex libero veritatis
-            aliquid, ipsum exercitationem. Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. 
+            At Blackwill International Company Limited, our ambition is to set new benchmarks in hospitality and property management. We specialize in offering premium hotels, luxurious apartments, state-of-the-art conference venues, and comprehensive business consulting. By seamlessly linking property management with personalized assistance, we ensure that every visitor—be it for leisure, business, or medical needs—finds their perfect accommodation. Our curated portfolio spans across India, South Africa, and Tanzania, guaranteeing exceptional service and impeccable locations.
           </p>
           <div className="flex flex-wrap gap-4">
               <div className="bg-[#f8f9fa] p-4 rounded-[6px]">
                 <div className="flex items-center gap-1">
-                <CountUp start={isVisible ? 0 : undefined} end={100} duration={10} delay={3}>
-                  {({ countUpRef }) => (
-                    <h3 ref={countUpRef as React.RefObject<HTMLHeadingElement>} className="text-2xl font-semibold"></h3>
-                  )}
-                </CountUp>
-                <h2 className="bold-22">+</h2>
+                  <CountUp start={isVisible ? 0 : undefined} end={100} duration={10} delay={3}>
+                    {({ countUpRef }) => (
+                      <h3 ref={countUpRef as React.RefObject<HTMLHeadingElement>} className="text-2xl font-semibold"></h3>
+                    )}
+                  </CountUp>
+                  <h2 className="bold-22">+</h2>
                 </div>
                 <p className="text-gray-600">Happy Clients</p>
               </div>
               <div className="bg-[#f8f9fa] p-4 rounded-[6px]">
                 <div className="flex items-center gap-1">
-                <CountUp start={isVisible ? 0 : undefined} end={85} duration={10} delay={3}>
-                  {({ countUpRef }) => (
-                    <h3 ref={countUpRef as React.RefObject<HTMLHeadingElement>} className="text-2xl font-semibold"></h3>
-                  )}
-                </CountUp>
-                <h2 className="bold-22">+</h2>
+                  <CountUp start={isVisible ? 0 : undefined} end={85} duration={10} delay={3}>
+                    {({ countUpRef }) => (
+                      <h3 ref={countUpRef as React.RefObject<HTMLHeadingElement>} className="text-2xl font-semibold"></h3>
+                    )}
+                  </CountUp>
+                  <h2 className="bold-22">+</h2>
                 </div>
                 <p className="text-gray-600">Projects Completed</p>
               </div>
               <div className="bg-[#f8f9fa] p-4 rounded-[6px]">
                 <div className="flex items-center gap-1">
-                <CountUp start={isVisible ? 0 : undefined} end={4} duration={10} delay={3}>
-                  {({ countUpRef }) => (
-                    <h3 ref={countUpRef as React.RefObject<HTMLHeadingElement>} className="text-2xl font-semibold"></h3>
-                  )}
-                </CountUp>
-                <h2 className="bold-22">+</h2>
+                  <CountUp start={isVisible ? 0 : undefined} end={4} duration={10} delay={3}>
+                    {({ countUpRef }) => (
+                      <h3 ref={countUpRef as React.RefObject<HTMLHeadingElement>} className="text-2xl font-semibold"></h3>
+                    )}
+                  </CountUp>
+                  <h2 className="bold-22">+</h2>
                 </div>
-                <p className="text-gray-600">Year of Experience</p>
+                <p className="text-gray-600">Years of Experience</p>
               </div>
           </div>
         </div>

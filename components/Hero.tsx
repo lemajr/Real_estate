@@ -8,13 +8,14 @@ const Hero = () => {
                 <div className='relative top-32 xs:top-52'>
                     <span className='medium-18'>Welcome to Blackwill</span>
                     <h1 className='h1 capitalize max-w-[40rem]'>Blackwill International Compony Limited</h1>
-                    <p className='my-10 max-w-[33rem]'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum dicta mollitia temporibus? Illum, iusto amet harum architecto animi et unde expedita rerum nesciunt veritatis quo quis deleniti rem modi est.</p>
+                    <p className='my-10 max-w-[33rem]'> At Blackwill International Company Limited, we specialize in providing top-tier real estate solutions, including luxury hotels, modern apartments, and state-of-the-art conference centers. Explore our exclusive properties and enjoy unparalleled service.</p>
                     <div className='inline-flex items-center justify-center gap-4 bg-white rounded-xl'>
                         <div className='text-center regular-14 leading-tight pl-5'>
                             <h5 className='uppercase font-bold'> 10% off</h5>
                             <p className='regular-14'>On All Properties</p>
                         </div>
-                        <Link href="/listing" className='btn-secondary rounded-xl flexCenter !py-5'>Show now</Link>
+                        <Link href="/listing" className='btn-secondary rounded-xl flexCenter !py-5'>  Explore
+                        now</Link>
                     </div> 
                  </div>
 

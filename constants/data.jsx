@@ -1,9 +1,44 @@
+import blog1 from '@/public/assets//blog1.jpg'
+import blog2 from '@/public/assets//blog2.jpg'
+import blog3 from '@/public/assets//blog3.jpg'
+import blog4 from '@/public/assets//blog4.jpg'
+
 // icons
 import {
   FaFacebook,
   FaInstagram,
   FaTwitter,
 } from "react-icons/fa6";
+
+
+// properties data
+export const BLOGS = [
+  {
+    id: 1,
+    title: "Tranquil Terrace Tranquility Haven",
+    image: blog1,
+    category: "Cottage",
+  },
+  {
+    id: 2,
+    title: "Oceanview Oasis Serenity Escape",
+    image: blog2,
+    category: "Residence",
+  },
+  {
+    id: 3,
+    title: "Sunrise Sanctuary Solace Retreat",
+    image: blog3,
+    category: "House",
+  },
+  {
+    id: 4,
+    title: "Urban Elegance Sophistication Haven",
+    image: blog4,
+    category: "Property",
+  }
+];
+
 
 
 export const FOOTER_LINKS = [
