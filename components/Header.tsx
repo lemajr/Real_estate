@@ -6,7 +6,7 @@ import Navbar from './(navbar)/Navbar'
 import Image from 'next/image';
 import userIcon from "@/public/assets/user.svg"
 import { MdClose, MdMenu } from 'react-icons/md';
-
+import Logo from '@/public/assets/logo.jpeg'
 const Header = () => {
   const [menuOpened, setmenuOpened] = useState(false)
   const toggleMenu = () => setmenuOpened(!menuOpened)
@@ -31,8 +31,12 @@ const Header = () => {
       <div className={` ${active ? "py-0":"py-1"} max-padd-container bg-white transition-all duration-200 rounded-full px-5 ring-1 ring-slate-900/5 `}>
         <div className='flexBetween py-3'>
           <Link href="/">
-            <span className='font-[900] text-[20px]' > BLACKWILL
+          <div className='flex gap-4'>
+          <Image src={Logo} height={200} width={200} alt='' className='w-8 h-8 rounded-2xl' />
+            <span className='font-[900] text-[20px] hidden md:flex lg:flex xl:flex' >
+               BLACKWILL
             </span>
+          </div>
             {/* <span className='font-[600] medium-20'>WILL</span> */}
           </Link>
           <div className='flexCenter gap-x-4'>
