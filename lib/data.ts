@@ -14,6 +14,7 @@ export interface Property {
   const API_URL = "http://127.0.0.1:8000/api/properties/";
   
   export const fetchProperties = async (): Promise<Property[]> => {
+    
     try {
       const response = await fetch(API_URL);
       if (!response.ok) {

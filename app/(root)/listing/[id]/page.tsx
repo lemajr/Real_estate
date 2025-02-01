@@ -6,7 +6,9 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { FaLocationDot } from "react-icons/fa6";
 import MapComponent from "@/components/Map";
-import { fetchPropertyById, Property } from "@/lib/data"; 
+import { fetchPropertyById, Property } from "@/lib/data";
+import SinglePropertySkeleton from "@/components/SinglePropertySkeleton"; // Import the skeleton component
+
 const SingleProperty: React.FC = () => {
   const { id } = useParams(); // Get the dynamic route id
   const [property, setProperty] = useState<Property | null>(null);
@@ -16,7 +18,7 @@ const SingleProperty: React.FC = () => {
   useEffect(() => {
     const loadProperty = async () => {
       try {
-        const data = await fetchPropertyById(Number(id)); 
+        const data = await fetchPropertyById(Number(id));
         setProperty(data);
       } catch {
         setError("Failed to load property details.");
@@ -24,12 +26,12 @@ const SingleProperty: React.FC = () => {
         setLoading(false);
       }
     };
-  
+
     loadProperty();
   }, [id]);
 
   if (loading) {
-    return <p className="text-center">Loading...</p>;
+    return <SinglePropertySkeleton />; // Show skeleton while loading
   }
 
   if (error) {
@@ -39,6 +41,7 @@ const SingleProperty: React.FC = () => {
   if (!property) {
     return <p className="text-center text-red-500">Property not found.</p>;
   }
+
   return (
     <section className="max-padd-container my-[99px]">
       {/* Single property card */}
@@ -46,8 +49,8 @@ const SingleProperty: React.FC = () => {
         <Image
           src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}/${property.image}`}
           alt={property.title}
-          width={100}
-          height={100}
+          width={500}
+          height={500}
           className="rounded-xl self-center w-full h-[600px] max-md:h-auto object-cover"
         />
         <div className="absolute top-6 right-8">
@@ -61,7 +64,7 @@ const SingleProperty: React.FC = () => {
           <h5 className="bold-16 my-1 text-zinc-700">{property.city}</h5>
           <div className="flexBetween">
             <h4 className="medium-18 line-clamp-1">{property.title}</h4>
-            <div className="bold-20">Tsh {property.price}.00</div>
+            <div className="bold-20">Tsh {property.price}</div>
           </div>
           <p className="pt-2 mb-4 line-clamp-2">{property.description}</p>
           <div className="flexStart gap-x-2 my-5">
@@ -71,7 +74,7 @@ const SingleProperty: React.FC = () => {
             </div>
           </div>
           <div className="flexBetween">
-            <button className="btn-secondary rounded-lg !py-[7px] !px-5 shadow-sm">
+            <button className="btn-secondary rounded-lg !py-[12px] !px-5 shadow-sm">
               Book the Visit
             </button>
           </div>

@@ -6,38 +6,62 @@ import { icon } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
 interface MapProps {
-  address?: string;
-  city?: string;
-  country?: string;
+  address: string;
+  city: string;
+  country: string;
 }
 
 const MapComponent: React.FC<MapProps> = ({ address, city, country }) => {
   const fullAddress = `${address}, ${city}, ${country}`;
   const [position, setPosition] = useState<[number, number] | null>(null);
-  
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  // Default coordinates based on country (e.g., Tanzania)
+  const defaultCoordinates: { [key: string]: [number, number] } = {
+    TZ: [-6.7924, 39.2083], // Tanzania (Dar es Salaam)
+    // Add more countries as needed
+  };
+
   useEffect(() => {
     const fetchCoordinates = async () => {
+      setIsLoading(true);
+      setError(null);
+
       try {
         const response = await fetch(
-          `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(fullAddress)}`
+          `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(fullAddress)}`,
+          {
+            headers: {
+              'User-Agent': 'lemajr/1.0 (erickbale360@gmail.com)', // Required by Nominatim
+            },
+          }
         );
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
         const data = await response.json();
         if (data.length > 0) {
           const lat = parseFloat(data[0].lat);
           const lon = parseFloat(data[0].lon);
           setPosition([lat, lon]);
         } else {
-          console.error('Geolocation not found, using default coordinates.');
-          setPosition([-6.7924, 39.2083]); // Default to Dar es Salaam if no result
+          setError('Geolocation not found. Using default coordinates.');
+          setPosition(defaultCoordinates[country] || [-6.7924, 39.2083]); // Fallback to Tanzania
         }
       } catch (error) {
         console.error('Error fetching geolocation:', error);
-        setPosition([-6.7924, 39.2083]); // Default to Dar es Salaam on error
+        setError('Failed to fetch geolocation. Using default coordinates.');
+        setPosition(defaultCoordinates[country] || [-6.7924, 39.2083]); // Fallback to Tanzania
+      } finally {
+        setIsLoading(false);
       }
     };
-  
+
     fetchCoordinates();
-  }, [fullAddress]); // Add fullAddress to the dependency array
+  }, [fullAddress, country]);
 
   const defaultIcon = icon({
     iconUrl: '/leaflet/marker.png', // Path to your custom marker icon
@@ -48,9 +72,17 @@ const MapComponent: React.FC<MapProps> = ({ address, city, country }) => {
     shadowSize: [41, 41], // Size of the shadow
   });
 
+  if (isLoading) {
+    return <div className="text-center py-4">Loading map...</div>;
+  }
+
+  if (error) {
+    console.warn(error);
+  }
+
   return (
     <MapContainer
-      center={position || [-6.7924, 39.2083]} // Default center to Dar es Salaam
+      center={position || defaultCoordinates[country] || [-6.7924, 39.2083]} // Default center
       zoom={13}
       scrollWheelZoom={false}
       className="h-[24rem] w-full mt-8 z-0 rounded-lg"

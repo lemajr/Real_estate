@@ -8,14 +8,22 @@ import "swiper/css";
 import "swiper/css/navigation";
 import Item from "./Item";
 import { fetchProperties, Property } from "@/lib/data";
+import SkeletonCard from "./SkeletonCard";
 
 const Properties = () => {
   const [properties, setProperties] = useState<Property[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true); 
 
   useEffect(() => {
     const loadProperties = async () => {
-      const data = await fetchProperties();
-      setProperties(data);
+      try {
+        const data = await fetchProperties();
+        setProperties(data.slice(0, 9));
+      } catch (error) {
+        console.error("Error fetching properties:", error);
+      } finally {
+        setIsLoading(false); 
+      }
     };
 
     loadProperties();
@@ -58,11 +66,20 @@ const Properties = () => {
           modules={[Autoplay]}
           className="h-[488px] md:h-[533px] xl:h-[422px] mt-5"
         >
-          {properties.map((property) => (
-            <SwiperSlide key={property.id}>
-              <Item property={property} />
-            </SwiperSlide>
-          ))}
+
+          {/* Show skeleton cards while loading */}
+          {isLoading
+            ? Array.from({ length: 4 }).map((_, index) => (
+                <SwiperSlide key={index}>
+                  <SkeletonCard />
+                </SwiperSlide>
+              ))
+            : // Show properties after loading
+              properties.map((property) => (
+                <SwiperSlide key={property.id}>
+                  <Item property={property} />
+                </SwiperSlide>
+              ))}
         </Swiper>
       </div>
     </section>

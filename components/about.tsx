@@ -6,30 +6,6 @@ import aboutImage from "@/public/assets/about.jpg";
 import { RiDoubleQuotesL } from "react-icons/ri";
 import CountUp from "react-countup";
 
-interface Statistic {
-  label: string;
-  value: number;
-}
-
-const statistics: Statistic[] = [
-  {
-    label: "Happy Clients",
-    value: 100,
-  },
-  {
-    label: "Projects Completed",
-    value: 11,
-  },
-  {
-    label: "Years of Experience",
-    value: 4,
-  },
-  {
-    label: "Awards Won",
-    value: 5,
-  },
-];
-
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -82,19 +58,39 @@ const About = () => {
             consectetur adipisicing elit. 
           </p>
           <div className="flex flex-wrap gap-4">
-            {statistics.map((statistic, index) => (
-              <div key={index} className="bg-[#f8f9fa] p-4 rounded-[6px]">
+              <div className="bg-[#f8f9fa] p-4 rounded-[6px]">
                 <div className="flex items-center gap-1">
-                <CountUp start={isVisible ? 0 : undefined} end={statistic.value} duration={10} delay={3}>
+                <CountUp start={isVisible ? 0 : undefined} end={100} duration={10} delay={3}>
                   {({ countUpRef }) => (
                     <h3 ref={countUpRef as React.RefObject<HTMLHeadingElement>} className="text-2xl font-semibold"></h3>
                   )}
                 </CountUp>
-                <h2 className="bold-22">k+</h2>
+                <h2 className="bold-22">+</h2>
                 </div>
-                <p className="text-gray-600">{statistic.label}</p>
+                <p className="text-gray-600">Happy Clients</p>
               </div>
-            ))}
+              <div className="bg-[#f8f9fa] p-4 rounded-[6px]">
+                <div className="flex items-center gap-1">
+                <CountUp start={isVisible ? 0 : undefined} end={85} duration={10} delay={3}>
+                  {({ countUpRef }) => (
+                    <h3 ref={countUpRef as React.RefObject<HTMLHeadingElement>} className="text-2xl font-semibold"></h3>
+                  )}
+                </CountUp>
+                <h2 className="bold-22">+</h2>
+                </div>
+                <p className="text-gray-600">Projects Completed</p>
+              </div>
+              <div className="bg-[#f8f9fa] p-4 rounded-[6px]">
+                <div className="flex items-center gap-1">
+                <CountUp start={isVisible ? 0 : undefined} end={4} duration={10} delay={3}>
+                  {({ countUpRef }) => (
+                    <h3 ref={countUpRef as React.RefObject<HTMLHeadingElement>} className="text-2xl font-semibold"></h3>
+                  )}
+                </CountUp>
+                <h2 className="bold-22">+</h2>
+                </div>
+                <p className="text-gray-600">Year of Experience</p>
+              </div>
           </div>
         </div>
       </div>
