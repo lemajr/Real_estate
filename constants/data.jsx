@@ -28,15 +28,47 @@ export const BLOGS = [
   {
     id: 3,
     title: "Sunrise Sanctuary Solace Retreat",
-    image: blog3,
     category: "House",
   },
   {
     id: 4,
     title: "Urban Elegance Sophistication Haven",
-    image: blog4,
     category: "Property",
   }
+];
+
+// properties data
+export const SERVICES = [
+  {
+    id: 1,
+    title: "Hotel & Apartment Allocation",
+    image: blog1,
+    category: "Experience over 5 years",
+  },
+  {
+    id: 2,
+    title: "Conference Venue Provision",
+    image: blog2,
+    category: "Professional Event Spaces",
+  },
+  {
+    id: 3,
+    title: "Business Consultancy",
+    image: blog3,
+    category: "Expert Business Advice",
+  },
+  {
+    id: 4,
+    title: "Property Management",
+    image: blog4,
+    category: "Comprehensive Property Services",
+  },
+  // {
+  //   id: 5,
+  //   title: "Medical Tourism Assistance",
+  //   image: blog4,
+  //   category: "Support for Medical Travelers",
+  // },
 ];
 
 

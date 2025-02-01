@@ -1,6 +1,8 @@
-import { BLOGS } from "@/constants/data";
+import { SERVICES } from "@/constants/data";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
+import { FaLongArrowAltRight } from "react-icons/fa";
 
 const Service = () => {
   return (
@@ -10,21 +12,22 @@ const Service = () => {
         <h2 className="h2">Our Expert Blogs</h2>
       </div>
       <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mb-24">
-        {BLOGS.map((blog) => (
+        {SERVICES.map((service) => (
           <div
-            key={blog.id}
+            key={service.id}
             className="rounded-3xl border-[11px] shadow-sm overflow-hidden relative"
           >
-            <Image src={blog.image} alt="" width={400} height={800} />
+            <Image src={service.image} alt="" width={400} height={800} />
             <div className="absolute top-0 left-0 h-full w-full bg-black/25"></div>
             <div className="absolute bottom-3 left-3 text-white text-[15px]">
               <h3 className="font-[600px] text-[16px] pt-4 leading-5">
-                {blog.title}
+                {service.title}
               </h3>
-              <h4 className="medium-14 p-3 pt-1">{blog.category}</h4>
-              <button className="bg-white rounded-xl font-semibold text-tertiary px-3 py-1">
-                Continue reading
-              </button>
+              <h4 className="medium-14 py-3 pt-1 text-slate-300">{service.category}</h4>
+              <Link href="/contact" className="group bg-white rounded-lg font-semibold text-tertiary px-4 py-2 inline-flex justify-center items-center gap-1">
+                Interested <FaLongArrowAltRight className="h-5 w-5 transform transition-transform duration-300 group-hover:translate-x-1" />
+              </Link>
+
             </div>
           </div>
         ))}
