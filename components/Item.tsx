@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
 import HeartBtn from './HeartBtn';
-import { MdOutlineBathroom, MdOutlineBed, MdOutlineGarage } from 'react-icons/md';
 import Link from 'next/link';
 
 interface Facilities {
