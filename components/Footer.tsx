@@ -1,8 +1,17 @@
+'use client'
+
 import { FOOTER_LINKS, SOCIALS } from "@/constants/data";
 import Link from "next/link";
 import React from "react";
+import { useState, useEffect } from 'react';
 
 const Footer = () => {
+  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
+
+  useEffect(() => {
+    setCurrentYear(new Date().getFullYear());
+  }, []);
+
   return (
     <footer className="max-padd-container mb-4">
       <div className="max-padd-container bg-[#f8f9fa] rounded-3xl pt-14 xl:pt-20 pb-8">
@@ -71,7 +80,8 @@ const Footer = () => {
       {/* coyright */}
 
       <p className="text-white bg-tertiary medium-14 py-2 px-8 rounded-b-3xl flexBetween">
-        <span>©2025 Blackwill</span>All right reserverd
+        <span>©{currentYear} Blackwill</span>All right reserverd
+        
       </p>
     </footer>
   );
