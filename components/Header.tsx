@@ -33,7 +33,7 @@ const Header = () => {
           <Link href="/">
           <div className='flex gap-4'>
           <Image src={Logo} height={200} width={200} alt='' className='w-8 h-8 rounded-2xl' />
-            <span className='font-[900] text-[20px] hidden md:flex lg:flex xl:flex' >
+            <span className='font-[900] text-[20px] font-poppins hidden md:flex lg:flex xl:flex' >
                BLACKWILL
             </span>
           </div>

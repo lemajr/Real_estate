@@ -48,7 +48,7 @@ const About = () => {
         {/* right side */}
         <div className="flex-1 flex justify-center flex-col">
           <span className="medium-18">Our Vision Unfolded</span>
-          <h2 className="h2 ">Crafting Unforgettable Hospitality & Real Estate Experiences</h2>
+          <h2 className="h2 font-geistMono">Crafting Unforgettable Hospitality & Real Estate Experiences</h2>
           <p className="my-5">
             At Blackwill International Company Limited, our ambition is to set new benchmarks in hospitality and property management. We specialize in offering premium hotels, luxurious apartments, state-of-the-art conference venues, and comprehensive business consulting. By seamlessly linking property management with personalized assistance, we ensure that every visitor—be it for leisure, business, or medical needs—finds their perfect accommodation. Our curated portfolio spans across India, South Africa, and Tanzania, guaranteeing exceptional service and impeccable locations.
           </p>

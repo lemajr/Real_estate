@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Poppins, Montserrat } from "next/font/google";
+import { Poppins, Montserrat, Orbitron } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
@@ -16,6 +16,13 @@ const montserrat = Montserrat({
   subsets: ["latin"],
 });
 
+const orbitron = Orbitron({
+  variable: "--font-orbitron",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Blackwill Properties",
   description: "Find your dream home with Blackwill Properties",
@@ -29,7 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${montserrat} ${poppins} antialiased`}
+        className={`${montserrat.variable} ${poppins.className} ${orbitron.variable}  antialiased`}
       >
         <Header />
         {children}

@@ -25,7 +25,11 @@ export default {
   			geistMono: [
   				'var(--font-geist-mono)',
   				'monospace'
-  			]
+  			],
+			orbitron: [
+				'var(--font-orbitron)',
+                'sans-serif'
+			],
   		},
   		colors: {
   			primary: {
