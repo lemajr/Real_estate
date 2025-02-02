@@ -1,7 +1,8 @@
-import blog1 from '@/public/assets//blog1.jpg'
-import blog2 from '@/public/assets//blog2.jpg'
-import blog3 from '@/public/assets//blog3.jpg'
-import blog4 from '@/public/assets//blog4.jpg'
+import rent from '@/public/assets/rent.png'
+import conference from '@/public/assets/conference.png'
+import consultancy from '@/public/assets/consultancy.jpg'
+import management from '@/public/assets/management.jpg'
+
 
 // icons
 import {
@@ -11,64 +12,33 @@ import {
 } from "react-icons/fa6";
 
 
-// properties data
-export const BLOGS = [
-  {
-    id: 1,
-    title: "Tranquil Terrace Tranquility Haven",
-    image: blog1,
-    category: "Cottage",
-  },
-  {
-    id: 2,
-    title: "Oceanview Oasis Serenity Escape",
-    image: blog2,
-    category: "Residence",
-  },
-  {
-    id: 3,
-    title: "Sunrise Sanctuary Solace Retreat",
-    category: "House",
-  },
-  {
-    id: 4,
-    title: "Urban Elegance Sophistication Haven",
-    category: "Property",
-  }
-];
 
 // properties data
 export const SERVICES = [
   {
     id: 1,
     title: "Hotel & Apartment Allocation",
-    image: blog1,
+    image: rent,
     category: "Experience over 5 years",
   },
   {
     id: 2,
     title: "Conference Venue Provision",
-    image: blog2,
+    image: conference,
     category: "Professional Event Spaces",
   },
   {
     id: 3,
     title: "Business Consultancy",
-    image: blog3,
+    image: consultancy,
     category: "Expert Business Advice",
   },
   {
     id: 4,
     title: "Property Management",
-    image: blog4,
+    image: management,
     category: "Comprehensive Property Services",
   },
-  // {
-  //   id: 5,
-  //   title: "Medical Tourism Assistance",
-  //   image: blog4,
-  //   category: "Support for Medical Travelers",
-  // },
 ];
 
 

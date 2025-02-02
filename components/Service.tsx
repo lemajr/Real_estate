@@ -8,8 +8,8 @@ const Service = () => {
   return (
     <section className="max-padd-container">
       <div className="max-padd-container py-16 xl:py-28 rounded-3xl">
-        <span className="medium-18">Stay Updated with the Latest News!</span>
-        <h2 className="h2">Our Expert Blogs</h2>
+        <span className="medium-18">Excellence in Every Solution </span>
+        <h2 className="h2">Our Expert Services</h2>
       </div>
       <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mb-24">
         {SERVICES.map((service) => (
@@ -23,11 +23,16 @@ const Service = () => {
               <h3 className="font-[600px] text-[16px] pt-4 leading-5">
                 {service.title}
               </h3>
-              <h4 className="medium-14 py-3 pt-1 text-slate-300">{service.category}</h4>
-              <Link href="/contact" className="group bg-white rounded-lg font-semibold text-tertiary px-4 py-2 inline-flex justify-center items-center gap-1">
-                Interested <FaLongArrowAltRight className="h-5 w-5 transform transition-transform duration-300 group-hover:translate-x-1" />
+              <h4 className="medium-14 py-3 pt-1 text-slate-300">
+                {service.category}
+              </h4>
+              <Link
+                href="/contact"
+                className="group bg-white rounded-lg font-semibold text-tertiary px-4 py-2 inline-flex justify-center items-center gap-1"
+              >
+                Interested{" "}
+                <FaLongArrowAltRight className="h-5 w-5 transform transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
-
             </div>
           </div>
         ))}
