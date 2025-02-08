@@ -22,4 +22,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: property.updated_at || new Date().toISOString(),
     })),
   ];
+
 }

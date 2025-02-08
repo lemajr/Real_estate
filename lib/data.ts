@@ -12,8 +12,7 @@ export interface Property {
   }
   
   
-  // const API_URL = "https://bnd-estate-production.up.railway.app/api/properties/";
-  const API_URL = "http://127.0.0.1:8000/api/properties/";
+  const API_URL = "https://estate-back-end.vercel.app/api/properties/";
 
   
   export const fetchProperties = async (): Promise<Property[]> => {
