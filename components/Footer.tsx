@@ -51,7 +51,7 @@ const Footer = () => {
               <FooterColumn key={col.id} title={col.title}>
                 <ul className="flex flex-col gap-4 regular-14 text-gray-20">
                   {col.links.map((link) => (
-                    <Link href={link.url} key={link.id}>
+                    <Link href={link.url} className="scroll-smooth" key={link.id}>
                       {link.label}
                     </Link>
                   ))}

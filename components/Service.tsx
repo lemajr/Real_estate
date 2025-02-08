@@ -6,7 +6,7 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 
 const Service = () => {
   return (
-    <section className="max-padd-container">
+    <section id="hot-offers" className="max-padd-container">
       <div className="max-padd-container py-16 xl:py-28 rounded-3xl">
         <span className="medium-18">Excellence in Every Solution </span>
         <h2 className="h2">Our Expert Services</h2>

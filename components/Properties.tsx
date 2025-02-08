@@ -30,7 +30,7 @@ const Properties = () => {
   }, []);
 
   return (
-    <section className="max-padd-container">
+    <section id="latest-items" className="max-padd-container">
       <div className="max-padd-container bg-[#f8f9fa] py-16 xl:py-28 rounded-3xl">
         <span className="medium-18">Your Future Home Await</span>
         <h2 className="h2">Find Your Dream Here</h2>
