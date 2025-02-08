@@ -5,11 +5,10 @@ import { cn } from "@/lib/utils";
 import { InteractiveGridPattern } from "@/components/ui/interactive-grid-pattern";
 import Link from "next/link";
 import { MdPhone, MdMyLocation } from "react-icons/md";
-import PhoneInput from "react-phone-number-input"; // Import the PhoneInput component
-import "react-phone-number-input/style.css"; // Import the default styles
+import PhoneInput from "react-phone-number-input";
+import "react-phone-number-input/style.css";
 import { IoIosSend, IoMdChatboxes } from "react-icons/io";
 import { BsFacebook } from "react-icons/bs";
-
 
 const Contact = () => {
   const [phoneNumber, setPhoneNumber] = useState<string>(""); // State for phone number
@@ -106,51 +105,53 @@ const Contact = () => {
               </form>
             </div>
             <div className="flex-1 space-y-6 relative z-20">
-            <div className="font-sans">
-      {/* Heading */}
-      <h5 className="text-2xl font-bold text-gray-800 mb-4">Chat with us</h5>
-      
-      {/* Description */}
-      <p className="text-gray-600 text-lg mb-6">
-        Speak to our friendly team via live chat
-      </p>
+              <div className="font-sans">
+                {/* Heading */}
+                <h5 className="text-2xl font-bold text-gray-800 mb-4">
+                  Chat with us
+                </h5>
 
-      {/* Links */}
-      <ul className="space-y-4">
-        {/* WhatsApp Link */}
-        <li className="flex items-center gap-3">
-          <IoMdChatboxes className="text-2xl " />
-          <Link
-            href="https://wa.me/25569500360"
-            className="text-lg  transition-colors underline underline-offset-8"
-          >
-            Start a live chat
-          </Link>
-        </li>
+                {/* Description */}
+                <p className="text-gray-600 text-lg mb-6">
+                  Speak to our friendly team via live chat
+                </p>
 
-        {/* Email Link */}
-        <li className="flex items-center gap-3">
-          <IoIosSend className="text-2xl" />
-          <Link
-            href="mailto:support@example.com"
-            className="text-lg transition-colors underline underline-offset-8"
-          >
-            Shoot us on email
-          </Link>
-        </li>
+                {/* Links */}
+                <ul className="space-y-4">
+                  {/* WhatsApp Link */}
+                  <li className="flex items-center gap-3">
+                    <IoMdChatboxes className="text-2xl " />
+                    <Link
+                      href="https://wa.me/255744135000"
+                      className="text-lg  transition-colors underline underline-offset-8"
+                    >
+                      Start a live chat
+                    </Link>
+                  </li>
 
-        {/* Facebook Link */}
-        <li className="flex items-center gap-3">
-          <BsFacebook className="text-2xl " />
-          <Link
-            href="https://facebook.com/yourpage"
-            className="text-lg transition-colors underline underline-offset-8"
-          >
-            Message us on Facebook
-          </Link>
-        </li>
-      </ul>
-    </div>
+                  {/* Email Link */}
+                  <li className="flex items-center gap-3">
+                    <IoIosSend className="text-2xl" />
+                    <Link
+                      href="mailto:support@example.com"
+                      className="text-lg transition-colors underline underline-offset-8"
+                    >
+                      Shoot us on email
+                    </Link>
+                  </li>
+
+                  {/* Facebook Link */}
+                  <li className="flex items-center gap-3">
+                    <BsFacebook className="text-2xl " />
+                    <Link
+                      href="https://facebook.com/jackobonchimbi"
+                      className="text-lg transition-colors underline underline-offset-8"
+                    >
+                      Message us on Facebook
+                    </Link>
+                  </li>
+                </ul>
+              </div>
               <div>
                 <h5 className="medium-18">Call us</h5>
                 <p className="py-3">Call our team Mon-Fri from 8am to 5pm</p>
@@ -158,7 +159,7 @@ const Contact = () => {
                   <li className="flex items-center gap-2">
                     <MdPhone />
                     <Link href="tel:+25569500360" className="">
-                      +255 69-500-360
+                      +255 744-135-000
                     </Link>
                   </li>
                 </ul>

@@ -8,8 +8,8 @@ import management from '@/public/assets/management.jpg'
 import {
   FaFacebook,
   FaInstagram,
-  FaTwitter,
 } from "react-icons/fa6";
+import { ImWhatsapp } from 'react-icons/im';
 
 
 
@@ -62,20 +62,20 @@ export const FOOTER_LINKS = [
   },
 ];
 
-export const FOOTER_CONTACT_INFO = {
-  id: 1,
-  title: "Contact Us",
-  links: [
-    {id: 1, label: "Contact Number", value: "123-456-7890" },
-    { id: 2, label: "Email Address", value: "info@casacentral.com" },
-  ],
-};
+// export const FOOTER_CONTACT_INFO = {
+//   id: 1,
+//   title: "Contact Us",
+//   links: [
+//     {id: 1, label: "Contact Number", value: "+255 744 135 000" },
+//     { id: 2, label: "Email Address", value: "info@casacentral.com" },
+//   ],
+// };
 
 export const SOCIALS = {
     title: "Follow Us",
     links: [
-      { id: 1, icon: <FaFacebook />, url: "https://facebook.com" },
-      { id: 2, icon: <FaInstagram />, url: "https://instagram.com" },
-      { id: 3, icon: <FaTwitter />, url: "https://twitter.com" },
+      { id: 1, icon: <FaFacebook />, url: "https://facebook.com/jackobonchimbi" },
+      { id: 3, icon: <ImWhatsapp />, url: "https://wa.me/255744135000" },
+      { id: 2, icon: <FaInstagram />, url: "https://instagram.com/blackwill54" },
     ],
   };
