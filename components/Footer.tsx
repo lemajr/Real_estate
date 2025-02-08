@@ -1,8 +1,8 @@
-'use client'
+"use client";
 
 import { FOOTER_LINKS, SOCIALS } from "@/constants/data";
 import Link from "next/link";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 const Footer = () => {
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
@@ -16,7 +16,10 @@ const Footer = () => {
       <div className="max-padd-container bg-[#f8f9fa] rounded-3xl pt-14 xl:pt-20 pb-8">
         <h3 className="h3">Elevate Your Real Estate Experience</h3>
         <p>
-          At Blackwill International, we present a curated collection of premium properties alongside bespoke services that cater to your discerning lifestyle. Discover opportunities that redefine luxury and functionality.
+          At Blackwill International, we present a curated collection of premium
+          properties alongside bespoke services that cater to your discerning
+          lifestyle. Discover opportunities that redefine luxury and
+          functionality.
         </p>
         <hr className="my-8 bg-slate-900/30 h-[2px]" />
         {/* container */}
@@ -26,7 +29,9 @@ const Footer = () => {
               <span className="font-[900] text-[24px]">BLACKWILL</span>
             </Link>
             <p className="py-4">
-              Our commitment to excellence shines through every project we undertake. With a focus on innovation and design, we ensure that our portfolio meets the highest standards of luxury and service.
+              Our commitment to excellence shines through every project we
+              undertake. With a focus on innovation and design, we ensure that
+              our portfolio meets the highest standards of luxury and service.
             </p>
             <div className="flex items-center pl-6 max-md:pl-4 h-[3.3rem] bg-white w-full max-w-[366px] mx-auto rounded-full ring-1 ring-slate-500/5">
               <input
@@ -57,7 +62,13 @@ const Footer = () => {
               <FooterColumn title={SOCIALS.title}>
                 <ul className="flex gap-4">
                   {SOCIALS.links.map((link) => (
-                    <Link href={"/"} key={link.id} className="text-xl">
+                    <Link
+                      href={link.url}
+                      key={link.id}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xl"
+                    >
                       {link.icon}
                     </Link>
                   ))}

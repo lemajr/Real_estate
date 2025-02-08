@@ -24,8 +24,28 @@ const orbitron = Orbitron({
 });
 
 export const metadata: Metadata = {
-  title: "Blackwill Properties",
-  description: "Find your dream home with Blackwill Properties",
+  title: "Blackwill Properties - Find Your Dream Home",
+  description: "Discover the best real estate deals with Blackwill Properties. Buy, sell, or rent properties with ease and confidence.",
+  keywords: "real estate, properties, buy house, rent home, Blackwill Properties, dream home, real estate deals",
+  robots: "index, follow", // Allows search engines to index and follow links
+  other: {
+    "google-site-verification": "cqX0KKCzoNrMeInEwFDoo_pGrtX_MP_v1R0K87b7Dsw",
+  },
+  openGraph: {
+    title: "Blackwill Properties - Find Your Dream Home",
+    description: "Explore the best real estate deals with Blackwill Properties. Find, buy, or rent properties easily.",
+    url: "https://www.blackwill.co.tz",
+    siteName: "Blackwill Properties",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blackwill Properties - Find Your Dream Home",
+    description: "Explore the best real estate deals. Buy, sell, or rent properties easily.",
+  },
+  alternates: {
+    canonical: "https://www.blackwill.co.tz",
+  },
 };
 
 export default function RootLayout({

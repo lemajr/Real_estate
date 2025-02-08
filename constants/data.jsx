@@ -74,12 +74,10 @@ export const FOOTER_CONTACT_INFO = {
 };
 
 export const SOCIALS = {
-  id: 1,
-  title: "Social",
-  links: [
-    {id: 1, icon: <FaFacebook />, id: "facebook" },
-    {id: 2, icon: <FaInstagram />, id: "instagram" },
-    {id: 3,  icon: <FaTwitter />, id: "twitter" },
-  
-  ],
-};
+    title: "Follow Us",
+    links: [
+      { id: 1, icon: <FaFacebook />, url: "https://facebook.com" },
+      { id: 2, icon: <FaInstagram />, url: "https://instagram.com" },
+      { id: 3, icon: <FaTwitter />, url: "https://twitter.com" },
+    ],
+  };
