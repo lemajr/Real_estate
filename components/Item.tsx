@@ -3,20 +3,16 @@ import React from 'react';
 import HeartBtn from './HeartBtn';
 import Link from 'next/link';
 
-interface Facilities {
-  bedrooms?: number;
-  bathrooms?: number;
-  parkings?: number;
-}
-
 interface Property {
   id: number;
   title: string;
   city: string;
   image: string;
-  facilities?: Facilities;
   description: string;
-  price: string; 
+  price: string;
+  address: string;
+  country: string;
+
 }
 
 interface ItemProps {
@@ -58,3 +54,5 @@ const Item: React.FC<ItemProps> = ({ property }) => {
 };
 
 export default Item;
+
+

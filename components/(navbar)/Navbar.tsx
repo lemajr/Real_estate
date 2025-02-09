@@ -24,7 +24,7 @@ const links: NavLink[] = [
   { id: 1, href: '/', label: 'Home', iconNames: <MdHomeWork size={20} /> },
   { id: 2, href: '/listing', label: 'Listing', iconNames: <RiCheckboxMultipleBlankFill size={20} /> },
   { id: 3, href: '/contact', label: 'Contact', iconNames: <MdPermContactCalendar size={20} /> },
-  { id: 4, href: '/ho', label: 'Property', iconNames: <MdAddHome size={20} /> },
+  { id: 4, href: 'https://estate-back-end.vercel.app/admin/', label: 'Property', iconNames: <MdAddHome size={20} /> },
 ];
 
 const Navbar = ({ containerStyles }: NavbarProps) => {

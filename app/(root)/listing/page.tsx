@@ -68,13 +68,17 @@ const Listing = () => {
               Array.from({ length: 6 }).map((_, index) => (
                 <SkeletonCard key={index} />
               ))
-            ) : (
+            ) : properties.length > 0 ? (
               <>
                 {/* Show filtered properties */}
                 {filteredProperties.map((property) => (
                   <Item key={property.id} property={property} />
                 ))}
               </>
+            ) : (
+              <div className="text-center text-gray-600 py-4">
+                No properties found.
+              </div>
             )}
           </div>
           {/* Show message if no properties match the search query */}

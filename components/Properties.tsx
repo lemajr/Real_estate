@@ -74,12 +74,18 @@ const Properties = () => {
                   <SkeletonCard />
                 </SwiperSlide>
               ))
-            : // Show properties after loading
+            : properties.length > 0 ? (
               properties.map((property) => (
                 <SwiperSlide key={property.id}>
                   <Item property={property} />
                 </SwiperSlide>
-              ))}
+              ))) : (
+                <SwiperSlide>
+    <div className="text-center py-8">
+      <h3 className="text-lg font-semibold">No properties found</h3>
+    </div>
+  </SwiperSlide>
+              )}
         </Swiper>
       </div>
     </section>
