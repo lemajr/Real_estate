@@ -2,8 +2,7 @@ import Image from 'next/image';
 import React from 'react';
 import HeartBtn from './HeartBtn';
 import Link from 'next/link';
-import { LocateIcon, MapPinCheckIcon, MapPinHouse } from 'lucide-react';
-import { MdLocationOn } from 'react-icons/md';
+import { MapPinHouse } from 'lucide-react';
 
 interface Property {
   id: number;

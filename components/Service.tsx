@@ -2,7 +2,6 @@ import { SERVICES } from "@/constants/data";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { FaLongArrowAltRight } from "react-icons/fa";
 import { InteractiveHoverButton } from "./magicui/interactive-hover-button";
 
 const Service = () => {

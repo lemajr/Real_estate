@@ -5,7 +5,6 @@ import Image from "next/image";
 import userIcon from "@/public/assets/user.svg";
 import { Button } from "./ui/button";
 import { Loader } from "lucide-react"; 
-import { lazy } from "react";
 
 const SignInForm = () => {
   const { data: session, status } = useSession();
