@@ -53,10 +53,7 @@ const Listing = () => {
     }
   }, [searchQuery, properties]);
 
-  useEffect(() => {
-    setFilteredProperties(filteredProperties);
-  }, [filteredProperties]);
-  
+
   return (
     <main className="max-padd-container my-[99px]">
       <div className="max-padd-container py-10 xl:py-22 bg-[#f8f9fa] rounded-3xl">
