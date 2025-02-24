@@ -28,7 +28,6 @@ const Item: React.FC<ItemProps> = ({ property }) => {
     <div className='rounded-2xl p-5 bg-white font-montserrat'>
 
       <div className='pb-2 relative'>
-        {/* Load remote image */}
         <Link href={`/listing/${property.id}`}>
         <Image 
           src={imageUrl} 
