@@ -28,14 +28,14 @@ const Listing = () => {
     };
 
     loadProperties();
-  }, []);
+  }, [fetchProperties]);
 
   // Debounced search function
   const handleSearch = useCallback(
     debounce((query: string) => {
       setSearchQuery(query);
     }, 300),
-    []
+    [setSearchQuery] 
   );
 
   // Filter properties based on search query
@@ -53,6 +53,10 @@ const Listing = () => {
     }
   }, [searchQuery, properties]);
 
+  useEffect(() => {
+    setFilteredProperties(filteredProperties);
+  }, [filteredProperties]);
+  
   return (
     <main className="max-padd-container my-[99px]">
       <div className="max-padd-container py-10 xl:py-22 bg-[#f8f9fa] rounded-3xl">

@@ -50,6 +50,7 @@ const MapComponent: React.FC<MapProps> = ({ address, city, country }) => {
         } else {
           setError('Geolocation not found. Using default coordinates.');
           setPosition(defaultCoordinates[country] || [-6.7924, 39.2083]); // Fallback to Tanzania
+          
         }
       } catch (error) {
         console.error('Error fetching geolocation:', error);
