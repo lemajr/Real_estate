@@ -41,8 +41,7 @@ const About = () => {
               <RiDoubleQuotesL className="text-2xl" />
             </span>
             <p className="text-center relative bottom-3">
-            At Blackwill, every detail is a promise of excellence—transforming everyday moments into extraordinary experiences that redefine luxury living.
-            </p>
+            At Blackwill, we transform everyday moments into extraordinary experiences, redefining luxury living.</p>
           </div>
         </div>
         {/* right side */}

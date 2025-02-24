@@ -2,6 +2,8 @@ import Image from 'next/image';
 import React from 'react';
 import HeartBtn from './HeartBtn';
 import Link from 'next/link';
+import { LocateIcon, MapPinCheckIcon, MapPinHouse } from 'lucide-react';
+import { MdLocationOn } from 'react-icons/md';
 
 interface Property {
   id: number;
@@ -25,8 +27,10 @@ const Item: React.FC<ItemProps> = ({ property }) => {
 
   return (
     <div className='rounded-2xl p-5 bg-white font-montserrat'>
+
       <div className='pb-2 relative'>
         {/* Load remote image */}
+        <Link href={`/listing/${property.id}`}>
         <Image 
           src={imageUrl} 
           alt={property.title} 
@@ -34,17 +38,20 @@ const Item: React.FC<ItemProps> = ({ property }) => {
           height={200} 
           className='rounded-xl lg:h-[12rem] object-cover' 
         />
+        </Link>
         <div className='absolute top-4 right-6'>
           <HeartBtn />
         </div>
       </div>
-      <h5 className='my-1 text-gray-30'>{property.city}</h5>
-      <h4 className='medium-18 line-clamp-1'>{property.title}</h4>
+
+      <div className='font-bold text-gray-30 truncate'>Tsh: {parseFloat(property.price).toLocaleString()} </div>
+      <h4 className='medium-18  line-clamp-1'>{property.title}</h4>
 
       <p className='pt-2 mb-4 line-clamp-2'>{property.description}</p>
 
       <div className='flexBetween '>
-        <div className='bold-20 truncate'>Tsh {parseFloat(property.price).toLocaleString()}</div>
+      <h5 className='my-1 text-gray-30 flex gap-2'><MapPinHouse /> {property.city}</h5>
+
         <Link href={`/listing/${property.id}`}>
           <button className='btn-secondary rounded-lg !py-[6px] !px-2 shadow-sm truncate'>View Details</button>
         </Link>

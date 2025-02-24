@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { FaLongArrowAltRight } from "react-icons/fa";
+import { InteractiveHoverButton } from "./magicui/interactive-hover-button";
 
 const Service = () => {
   return (
@@ -28,11 +29,12 @@ const Service = () => {
               </h4>
               <Link
                 href="/contact"
-                className="group bg-white rounded-lg font-semibold text-tertiary px-4 py-2 inline-flex justify-center items-center gap-1"
+                className="group font-semibold text-tertiary px-4 py-2 inline-flex justify-center items-center gap-1"
               >
-                Interested{" "}
-                <FaLongArrowAltRight className="h-5 w-5 transform transition-transform duration-300 group-hover:translate-x-1" />
+<InteractiveHoverButton>Interested</InteractiveHoverButton>
+                {/* <FaLongArrowAltRight className="h-5 w-5 transform transition-transform duration-300 group-hover:translate-x-1" /> */}
               </Link>
+ 
             </div>
           </div>
         ))}

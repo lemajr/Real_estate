@@ -61,22 +61,23 @@ const SingleProperty: React.FC = () => {
       <div className="xl:flexBetween gap-8 px-8">
         <div className="flex-1">
           {/* Left side */}
-          <h5 className="bold-16 my-1 text-zinc-700">{property.city}</h5>
+          <h5 className="bold-16 my-1 text-zinc-300 capitalize">{property.city}</h5>
           <div className="flexBetween">
-            <h4 className="medium-18 line-clamp-1">{property.title}</h4>
-            <div className="bold-20">Tsh {property.price}</div>
+            <h4 className="medium-18 ">{property.title}</h4>
           </div>
-          <p className="pt-2 mb-4 line-clamp-2">{property.description}</p>
+          <p className="pt-2 mb-4 ">{property.description}</p>
           <div className="flexStart gap-x-2 my-5">
             <FaLocationDot />
             <div>
               {property.address} {property.city} {property.country}
             </div>
           </div>
-          <div className="flexBetween">
+          <div className="flexBetween max-md:flex gap-y-3 flex-wrap-reverse">
             <button className="btn-secondary rounded-lg !py-[12px] !px-5 shadow-sm">
               Book the Visit
             </button>
+            <div className="bold-20">Tsh {property.price}</div>
+
           </div>
         </div>
         {/* Right side */}

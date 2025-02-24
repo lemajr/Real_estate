@@ -3,6 +3,7 @@
 import { FOOTER_LINKS, SOCIALS } from "@/constants/data";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
+import SubscribeForm from "./Subscribe";
 
 const Footer = () => {
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
@@ -13,7 +14,7 @@ const Footer = () => {
 
   return (
     <footer className="max-padd-container mb-4">
-      <div className="max-padd-container bg-[#f8f9fa] rounded-3xl pt-14 xl:pt-20 pb-8">
+      <div className="max-padd-container bg-[#f8f9fa] pt-14 xl:pt-20 pb-8">
         <h3 className="h3">Elevate Your Real Estate Experience</h3>
         <p>
           At Blackwill International, we present a curated collection of premium
@@ -33,18 +34,7 @@ const Footer = () => {
               undertake. With a focus on innovation and design, we ensure that
               our portfolio meets the highest standards of luxury and service.
             </p>
-            <div className="flex items-center pl-6 max-md:pl-4 h-[3.3rem] bg-white w-full max-w-[366px] mx-auto rounded-full ring-1 ring-slate-500/5">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="absolute bg-transparent border-none outline-none"
-              />
-              <div className="w-full flex justify-end">
-                <button className="btn-secondary !py-[13px] text-white rounded-full relative">
-                  Subscribe
-                </button>
-              </div>
-            </div>
+           <SubscribeForm />
           </div>
           <div className="flex justify-between flex-wrap gap-8">
             {FOOTER_LINKS.map((col) => (
