@@ -14,7 +14,6 @@ const SignInForm = () => {
 
   return (
     <div className="flex items-center gap-3 rounded-full border border-gray-300 bg-gray-900 p-1 px-4">
-      {/* User Avatar or Default Icon */}
       <Image
         src={session?.user?.image || userIcon}
         alt="User Avatar"
