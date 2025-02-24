@@ -3,6 +3,7 @@ import { Poppins, Montserrat, Orbitron } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import Providers from "@/providers";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -58,9 +59,12 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} ${poppins.className} ${orbitron.variable}  antialiased`}
       >
+        <Providers >
+
         <Header />
         {children}
         <Footer />
+        </Providers>
       </body>
     </html>
   );

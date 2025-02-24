@@ -54,7 +54,7 @@ const About = () => {
           <div className="flex flex-wrap gap-4">
               <div className="bg-[#f8f9fa] p-4 rounded-[6px]">
                 <div className="flex items-center gap-1">
-                  <CountUp start={isVisible ? 0 : undefined} end={100} duration={10} delay={3}>
+                  <CountUp start={isVisible ? 0 : undefined} end={100} duration={10} delay={2}>
                     {({ countUpRef }) => (
                       <h3 ref={countUpRef as React.RefObject<HTMLHeadingElement>} className="text-2xl font-semibold"></h3>
                     )}
@@ -65,7 +65,7 @@ const About = () => {
               </div>
               <div className="bg-[#f8f9fa] p-4 rounded-[6px]">
                 <div className="flex items-center gap-1">
-                  <CountUp start={isVisible ? 0 : undefined} end={85} duration={10} delay={3}>
+                  <CountUp start={isVisible ? 0 : undefined} end={85} duration={10} delay={2}>
                     {({ countUpRef }) => (
                       <h3 ref={countUpRef as React.RefObject<HTMLHeadingElement>} className="text-2xl font-semibold"></h3>
                     )}
@@ -76,7 +76,7 @@ const About = () => {
               </div>
               <div className="bg-[#f8f9fa] p-4 rounded-[6px]">
                 <div className="flex items-center gap-1">
-                  <CountUp start={isVisible ? 0 : undefined} end={4} duration={10} delay={3}>
+                  <CountUp start={isVisible ? 0 : undefined} end={4} duration={10} delay={2}>
                     {({ countUpRef }) => (
                       <h3 ref={countUpRef as React.RefObject<HTMLHeadingElement>} className="text-2xl font-semibold"></h3>
                     )}
