@@ -4,6 +4,7 @@ import "./globals.css";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Providers from "@/providers";
+import { Toaster } from "@/components/ui/sonner";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -63,6 +64,7 @@ export default function RootLayout({
 
         <Header />
         {children}
+        <Toaster />
         <Footer />
         </Providers>
       </body>
