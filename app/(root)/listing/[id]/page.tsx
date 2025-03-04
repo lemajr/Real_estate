@@ -7,19 +7,22 @@ import { useParams } from "next/navigation";
 import { FaLocationDot } from "react-icons/fa6";
 import MapComponent from "@/components/Map";
 import { fetchPropertyById, Property } from "@/lib/data";
-import SinglePropertySkeleton from "@/components/SinglePropertySkeleton"; // Import the skeleton component
+import SinglePropertySkeleton from "@/components/SinglePropertySkeleton"; 
 import BookingBtn from "@/components/BookingBtn";
 
 const SingleProperty: React.FC = () => {
-  const { id } = useParams<{ id: string }>(); // Get the dynamic route id
+  const { id } = useParams(); // Get dynamic route id
   const [property, setProperty] = useState<Property | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    if (!id) return; 
+
     const loadProperty = async () => {
+      setLoading(true);
       try {
-        const data = await fetchPropertyById(Number(id));
+        const data = await fetchPropertyById(Number(id)); 
         setProperty(data);
       } catch {
         setError("Failed to load property details.");
@@ -32,7 +35,7 @@ const SingleProperty: React.FC = () => {
   }, [id]);
 
   if (loading) {
-    return <SinglePropertySkeleton />; // Show skeleton while loading
+    return <SinglePropertySkeleton />;
   }
 
   if (error) {

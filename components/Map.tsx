@@ -1,9 +1,16 @@
+// components/Map.tsx
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import { icon } from 'leaflet';
+import dynamic from 'next/dynamic';
+import { SyncLoader } from 'react-spinners';
 import 'leaflet/dist/leaflet.css';
+
+// Dynamically import Leaflet components with SSR disabled
+const MapContainer = dynamic(() => import('react-leaflet').then(mod => mod.MapContainer), { ssr: false });
+const TileLayer = dynamic(() => import('react-leaflet').then(mod => mod.TileLayer), { ssr: false });
+const Marker = dynamic(() => import('react-leaflet').then(mod => mod.Marker), { ssr: false });
+const Popup = dynamic(() => import('react-leaflet').then(mod => mod.Popup), { ssr: false });
 
 interface MapProps {
   address: string;
@@ -16,12 +23,27 @@ const MapComponent: React.FC<MapProps> = ({ address, city, country }) => {
   const [position, setPosition] = useState<[number, number] | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [leafletIcon, setLeafletIcon] = useState<any>(null);
 
-  // Default coordinates based on country (e.g., Tanzania)
+  // Default coordinates based on country
   const defaultCoordinates: { [key: string]: [number, number] } = {
     TZ: [-6.7924, 39.2083], // Tanzania (Dar es Salaam)
-    // Add more countries as needed
   };
+
+  // Load Leaflet icon only on client side
+  useEffect(() => {
+    import('leaflet').then(L => {
+      const iconInstance = L.icon({
+        iconUrl: '/marker/marker.png',
+        shadowUrl: '/marker/marker-shadow.png',
+        iconSize: [41, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [0, -34],
+        shadowSize: [41, 41],
+      });
+      setLeafletIcon(iconInstance);
+    });
+  }, []);
 
   useEffect(() => {
     const fetchCoordinates = async () => {
@@ -33,7 +55,7 @@ const MapComponent: React.FC<MapProps> = ({ address, city, country }) => {
           `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(fullAddress)}`,
           {
             headers: {
-              'User-Agent': 'lemajr/1.0 (erickbale360@gmail.com)', // Required by Nominatim
+              'User-Agent': 'lemajr/1.0 (erickbale360@gmail.com)',
             },
           }
         );
@@ -49,13 +71,12 @@ const MapComponent: React.FC<MapProps> = ({ address, city, country }) => {
           setPosition([lat, lon]);
         } else {
           setError('Geolocation not found. Using default coordinates.');
-          setPosition(defaultCoordinates[country] || [-6.7924, 39.2083]); // Fallback to Tanzania
-          
+          setPosition(defaultCoordinates[country] || [-6.7924, 39.2083]);
         }
       } catch (error) {
         console.error('Error fetching geolocation:', error);
         setError('Failed to fetch geolocation. Using default coordinates.');
-        setPosition(defaultCoordinates[country] || [-6.7924, 39.2083]); // Fallback to Tanzania
+        setPosition(defaultCoordinates[country] || [-6.7924, 39.2083]);
       } finally {
         setIsLoading(false);
       }
@@ -64,17 +85,12 @@ const MapComponent: React.FC<MapProps> = ({ address, city, country }) => {
     fetchCoordinates();
   }, [fullAddress, country]);
 
-  const defaultIcon = icon({
-    iconUrl: '/leaflet/marker.png', // Path to your custom marker icon
-    shadowUrl: '/leaflet/marker-shadow.png', // Path to the shadow
-    iconSize: [41, 41], // Size of the icon
-    iconAnchor: [12, 41], // Point of the icon that corresponds to the marker's location
-    popupAnchor: [0, -34], // Point from which the popup should open relative to the iconAnchor
-    shadowSize: [41, 41], // Size of the shadow
-  });
-
-  if (isLoading) {
-    return <div className="text-center py-4">Loading map...</div>;
+  if (isLoading || !leafletIcon) {
+    return (
+      <div className="text-center py-4 bg-slate-50 h-[24rem] w-full mt-8 z-0 rounded-lg flex justify-center items-center">
+        <SyncLoader size={14} color="gray" />
+      </div>
+    );
   }
 
   if (error) {
@@ -83,17 +99,17 @@ const MapComponent: React.FC<MapProps> = ({ address, city, country }) => {
 
   return (
     <MapContainer
-      center={position || defaultCoordinates[country] || [-6.7924, 39.2083]} // Default center
+      center={position || defaultCoordinates[country] || [-6.7924, 39.2083]}
       zoom={13}
       scrollWheelZoom={false}
       className="h-[24rem] w-full mt-8 z-0 rounded-lg"
     >
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        attribution='© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       />
       {position && (
-        <Marker position={position} icon={defaultIcon}>
+        <Marker position={position} icon={leafletIcon}>
           <Popup>
             {address}, {city}, {country}
           </Popup>

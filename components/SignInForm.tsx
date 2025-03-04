@@ -2,45 +2,63 @@
 
 import { signIn, signOut, useSession } from "next-auth/react";
 import Image from "next/image";
-import userIcon from "@/public/assets/user.svg";
 import { Button } from "./ui/button";
-import { Loader } from "lucide-react";
+import { LoaderIcon } from "lucide-react";
 import { useEffect } from "react";
 import { saveVisitor } from "@/lib/actions";
+import userIcon from "@/public/assets/user.svg";
 
 const SignInForm = () => {
   const { data: session, status } = useSession();
   const isLoading = status === "loading";
 
-  const avatarSize = session?.user?.image ? 32 : 22;
-
   useEffect(() => {
-    if (session?.user) {
-      const saveVisitorData = async () => {
-        const visitorData = {
-          username: session?.user?.name,
-          email: session?.user?.email,
-        };
+    const saveVisitorData = async () => {
+      if (!session?.user) return;
 
-        const result = await saveVisitor(visitorData); 
-        if (!result.success) {
-          console.log("Failed to save visitor:", result.error);
-        }
+      const visitorData = {
+        username: session.user.name,
+        email: session.user.email,
       };
 
-      saveVisitorData();
-    }
+      try {
+        const result = await saveVisitor(visitorData);
+        if (!result.success) {
+          console.error("Failed to save visitor:", result.error);
+        }
+      } catch (error) {
+        console.error("Error saving visitor data:", error);
+      }
+    };
+
+    saveVisitorData();
   }, [session]);
 
   if (isLoading) {
     return (
       <div className="flex items-center gap-3 rounded-full border border-gray-300 bg-gray-900 p-1 px-4">
-        <Loader className="h-5 w-5 animate-spin text-white" />
+        <LoaderIcon className="h-5 w-5 animate-spin text-white" />
       </div>
     );
   }
 
-  const buttonClass = "px-4 text-white rounded-full";
+  const avatarSize = session?.user?.image ? 32 : 22;
+  const baseButtonClass =
+    "px-4 text-white rounded-full flex items-center gap-2";
+
+  const buttonConfig = session
+    ? {
+        onClick: () => signOut(),
+        className: `${baseButtonClass} bg-red-500 hover:bg-red-400`,
+        text: "Logout",
+        ariaLabel: "Logout",
+      }
+    : {
+        onClick: () => signIn("google"),
+        className: `${baseButtonClass} bg-[#f4db7ebc] hover:bg-[#f4da7e98]`,
+        text: "Login",
+        ariaLabel: "Login with Google",
+      };
 
   return (
     <div className="flex items-center gap-3 rounded-full border border-gray-300 bg-gray-900 p-1 px-4">
@@ -53,23 +71,14 @@ const SignInForm = () => {
         priority={!session?.user?.image}
       />
 
-      {session ? (
-        <Button
-          onClick={() => signOut()}
-          className={`bg-red-500 hover:bg-red-400 ${buttonClass}`}
-          aria-label="Logout"
-        >
-          Logout
-        </Button>
-      ) : (
-        <Button
-          onClick={() => signIn("google")}
-          className={`bg-[#f4db7ebc] hover:bg-[#f4da7e98] ${buttonClass} `}
-          aria-label="Login with Google"
-        >
-          Login
-        </Button>
-      )}
+      <Button
+        onClick={buttonConfig.onClick}
+        className={buttonConfig.className}
+        aria-label={buttonConfig.ariaLabel}
+      >
+        {isLoading && <LoaderIcon className="size-6 animate-spin" />}
+        {buttonConfig.text}
+      </Button>
     </div>
   );
 };
