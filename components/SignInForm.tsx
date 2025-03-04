@@ -24,7 +24,7 @@ const SignInForm = () => {
 
         const result = await saveVisitor(visitorData); 
         if (!result.success) {
-          console.error("Failed to save visitor:", result.error);
+          console.log("Failed to save visitor:", result.error);
         }
       };
 
