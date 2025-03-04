@@ -58,9 +58,8 @@ const Contact = () => {
           <div className="max-w-3xl mx-auto text-center pb-8">
             <h2 className="h2">Contact our team</h2>
             <h5 className="text-md">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab quos
-              a unde! Corporis iure vitae deserunt nobis veritatis voluptatem
-              quaerat.
+  Looking to buy, sell, or rent a property? Our experts are here to assist you every step of the way.  
+  Get in touch with us for personalized real estate solutions.
             </h5>
           </div>
           <div className="max-w-4xl mx-auto flex flex-wrap gap-[6rem] mt-16 ">
