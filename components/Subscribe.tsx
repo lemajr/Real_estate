@@ -21,12 +21,18 @@ const SubscribeForm = () => {
 
       try {
         setLoading(true);
-        await saveSubscriber({ email });
-        toast.success("Thank you for subscribing!");
-        setEmail(""); // Clear input after success
-        setLoading(false);
+        const response = await saveSubscriber({ email });
+      
+        if (response.success) {
+          toast.success(response.message?.text);
+          setEmail(""); // Clear input after success
+        } else {
+          toast.error(response.error || "Failed to subscribe. Please try again.");
+        }
       } catch (error) {
-        toast.error("Failed to subscribe. Please try again.");
+        toast.error("Something went wrong. Please try again.");
+      } finally {
+        setLoading(false);
       }
     },
     [email]

@@ -24,6 +24,8 @@ const Item: React.FC<ItemProps> = ({ property }) => {
 
   const imageUrl = `${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${property.image}`;
 
+
+  
   return (
     <div className='rounded-2xl p-5 bg-white font-montserrat'>
 
@@ -34,11 +36,13 @@ const Item: React.FC<ItemProps> = ({ property }) => {
           alt={property.title} 
           width={400} 
           height={200} 
+          priority
           className='rounded-xl lg:h-[12rem] object-cover' 
         />
         </Link>
         <div className='absolute top-4 right-6'>
-          <HeartBtn />
+          <HeartBtn propertyId={property.id.toString()} />
+          
         </div>
       </div>
 

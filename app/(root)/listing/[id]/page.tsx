@@ -10,7 +10,7 @@ import { fetchPropertyById, Property } from "@/lib/data";
 import SinglePropertySkeleton from "@/components/SinglePropertySkeleton"; // Import the skeleton component
 
 const SingleProperty: React.FC = () => {
-  const { id } = useParams(); // Get the dynamic route id
+  const { id } = useParams<{ id: string }>(); // Get the dynamic route id
   const [property, setProperty] = useState<Property | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -55,7 +55,7 @@ const SingleProperty: React.FC = () => {
         />
         <div className="absolute top-6 right-8">
           {/* Like button */}
-          <HeartBtn />
+          <HeartBtn propertyId={property.id.toString()} />
         </div>
       </div>
       <div className="xl:flexBetween gap-8 px-8">

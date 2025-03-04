@@ -40,6 +40,7 @@ const Header = () => {
                 src={Logo}
                 height={200}
                 width={200}
+                priority
                 alt=""
                 className="w-8 h-8 rounded-2xl"
               />

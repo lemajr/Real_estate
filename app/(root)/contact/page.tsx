@@ -9,9 +9,47 @@ import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import { IoIosSend, IoMdChatboxes } from "react-icons/io";
 import { BsFacebook } from "react-icons/bs";
+import { getInToTouch } from "@/lib/actions";
+import { toast } from "sonner";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { ContactFormData, contactSchema } from "@/components/validationSchema";
 
 const Contact = () => {
-  const [phoneNumber, setPhoneNumber] = useState<string>(""); // State for phone number
+  const [loading, setLoading] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    formState: { errors },
+    reset,
+    watch
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactSchema),
+  });
+  const phoneValue = watch("phone");
+
+
+  const onSubmit = async (formData: ContactFormData) => {
+    setLoading(true);
+  
+    try {
+      const response = await getInToTouch(formData);
+  
+      if (response.success) {
+        toast.success(response.message.text);
+        setValue("phone", "");
+        reset();
+      } else {
+        toast.error(response.message.text);
+      }
+    } catch (error) {
+      toast.error("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
 
   return (
     <main className="relative max-padd-container my-[99px] overflow-hidden">
@@ -28,33 +66,41 @@ const Contact = () => {
           <div className="max-w-4xl mx-auto flex flex-wrap gap-[6rem] mt-16 ">
             <div className="flex-1 relative z-40">
               {/* Contact Form */}
-              <form action="">
+              <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="flex gap-3 flex-wrap">
                   <div className="w-full">
-                    <label htmlFor="Fname" className="block mb-2">
-                      First name
+                    <label htmlFor="fname" className="block mb-2">
+                      First Name
                     </label>
                     <input
                       type="text"
-                      id="Fname"
-                      name="Fname"
+                      id="fname"
+                      {...register("fname")}
                       placeholder="First name"
-                      className="w-full p-3 border border-slate-900/50 rounded-lg outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                      className="w-full p-3 border rounded-lg"
                     />
+                    {errors.fname && (
+                      <p className="text-red-500">{errors.fname.message}</p>
+                    )}
                   </div>
+
                   <div className="w-full">
                     <label htmlFor="lname" className="block mb-2">
-                      Last name
+                      Last Name
                     </label>
                     <input
                       type="text"
                       id="lname"
-                      name="lname"
+                      {...register("lname")}
                       placeholder="Last name"
-                      className="w-full p-3 border border-slate-900/50 rounded-lg outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                      className="w-full p-3 border rounded-lg"
                     />
+                    {errors.lname && (
+                      <p className="text-red-500">{errors.lname.message}</p>
+                    )}
                   </div>
                 </div>
+
                 <div className="mt-3">
                   <label htmlFor="email" className="block mb-2">
                     Email
@@ -62,45 +108,53 @@ const Contact = () => {
                   <input
                     type="email"
                     id="email"
-                    name="email"
+                    {...register("email")}
                     placeholder="Email"
-                    className="w-full p-3 border border-slate-900/50 rounded-lg outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                    className="w-full p-3 border rounded-lg"
                   />
+                  {errors.email && (
+                    <p className="text-red-500">{errors.email.message}</p>
+                  )}
                 </div>
+
                 <div className="mt-3">
                   <label htmlFor="phone" className="block mb-2">
-                    Phone number
+                    Phone Number
                   </label>
-                  <div className="flex rounded-md bg-white">
-                    <PhoneInput
-                      international
-                      defaultCountry="TZ"
-                      value={phoneNumber}
-                      onChange={(value) => setPhoneNumber(value ?? "")}
-                      id="phone"
-                      name="phone"
-                      placeholder="Enter phone number"
-                      className="w-full p-3 border border-slate-900/50 rounded-lg !focus:outline-none !focus:ring-0 !important"
-                    />
-                  </div>
+                  <PhoneInput
+                    international
+                    defaultCountry="TZ"
+                    value={phoneValue} 
+                    onChange={(value) => setValue("phone", value ?? "")}
+                    className="w-full p-3 border rounded-lg"
+                  />
+                  {errors.phone && (
+                    <p className="text-red-500">{errors.phone.message}</p>
+                  )}
                 </div>
+
                 <div className="mt-3">
                   <label htmlFor="message" className="block mb-2">
                     Message
                   </label>
                   <textarea
                     id="message"
-                    name="message"
+                    {...register("message")}
                     placeholder="Message"
-                    className="w-full p-3 border border-slate-900/50 rounded-lg outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                    className="w-full p-3 border rounded-lg"
                     rows={4}
                   />
+                  {errors.message && (
+                    <p className="text-red-500">{errors.message.message}</p>
+                  )}
                 </div>
+
                 <button
                   type="submit"
                   className="w-full p-3 text-white bg-primary hover:bg-primary-dark rounded-lg mt-6"
+                  disabled={loading}
                 >
-                  Send message
+                  {loading ? "Sending..." : "Send Message"}
                 </button>
               </form>
             </div>
