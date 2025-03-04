@@ -63,7 +63,7 @@ const HeartBtn = ({ propertyId }: HeartBtnProps) => {
     const id = await getVisitorId(email);
 
     if (!id) {
-      toast.error('Failed to get user ID');
+      console.log('Failed to get user ID');
       setIsLoading(false);
       return;
     }
@@ -81,8 +81,7 @@ const HeartBtn = ({ propertyId }: HeartBtnProps) => {
         toast.error(error || `Failed to ${isLiked ? 'unlike' : 'like'}`);
       }
     } catch (error) {
-      console.error('Toggle error:', error);
-      toast.error('Something went wrong');
+      console.error('Toggle error, Something went wrong', error);
     } finally {
       setIsLoading(false);
     }

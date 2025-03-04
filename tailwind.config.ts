@@ -26,10 +26,10 @@ export default {
   				'var(--font-geist-mono)',
   				'monospace'
   			],
-			orbitron: [
-				'var(--font-orbitron)',
-                'sans-serif'
-			],
+  			orbitron: [
+  				'var(--font-orbitron)',
+  				'sans-serif'
+  			]
   		},
   		colors: {
   			primary: {
@@ -98,6 +98,19 @@ export default {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
+  		},
+  		animation: {
+  			pulse: 'pulse var(--duration) ease-out infinite'
+  		},
+  		keyframes: {
+  			pulse: {
+  				'0%, 100%': {
+  					boxShadow: '0 0 0 0 var(--pulse-color)'
+  				},
+  				'50%': {
+  					boxShadow: '0 0 0 8px var(--pulse-color)'
+  				}
+  			}
   		}
   	}
   },

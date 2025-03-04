@@ -8,6 +8,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import MapComponent from "@/components/Map";
 import { fetchPropertyById, Property } from "@/lib/data";
 import SinglePropertySkeleton from "@/components/SinglePropertySkeleton"; // Import the skeleton component
+import BookingBtn from "@/components/BookingBtn";
 
 const SingleProperty: React.FC = () => {
   const { id } = useParams<{ id: string }>(); // Get the dynamic route id
@@ -73,9 +74,7 @@ const SingleProperty: React.FC = () => {
             </div>
           </div>
           <div className="flexBetween max-md:flex gap-y-3 flex-wrap-reverse">
-            <button className="btn-secondary rounded-lg !py-[12px] !px-5 shadow-sm">
-              Book the Visit
-            </button>
+           <BookingBtn propertyId={property.id.toString()} />
             <div className="bold-20">Tsh {property.price}</div>
 
           </div>

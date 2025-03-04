@@ -56,7 +56,7 @@ const SignInForm = () => {
       {session ? (
         <Button
           onClick={() => signOut()}
-          className={`bg-red-500 ${buttonClass}`}
+          className={`bg-red-500 hover:bg-red-400 ${buttonClass}`}
           aria-label="Logout"
         >
           Logout

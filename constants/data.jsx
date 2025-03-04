@@ -48,15 +48,15 @@ export const FOOTER_LINKS = [
     id: 1,
     title: "Learn More",
     links: [
-      { id: 1, label: "About Us", url: "#about" },
-      { id: 2, label: "Hot Offers", url: "#hot-offers" },
+      { id: 1, label: "About Us", url: "/#about" },
+      { id: 2, label: "Our Services", url: "/#hot-offers" },
     ],
   },
   {
     id: 2,
     title: "Our Community",
     links: [
-      { id: 3, label: "Latest Items", url: "#latest-items" },
+      { id: 3, label: "Contact", url: "/contact" },
       { id: 5, label: "Special Offers", url: "/listing" },
     ],
   },

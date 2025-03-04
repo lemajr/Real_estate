@@ -179,14 +179,14 @@ export const getUserIdByEmail = async (email: string) => {
   }
 };
 
+// Likes actions
 
 export const checkLikeStatus = async (visitorId: string, propertyId: string): Promise<boolean> => {
   try {
 
-    const BASE_END_POINT_LOCAL = process.env.BASE_END_POINT_LOCAL!;
     console.log('visitorId:',visitorId);
     console.log('propertyId:',propertyId);
-    const response = await fetch(`${BASE_END_POINT_LOCAL}/api/likes/status/?visitor=${visitorId}&property=${propertyId}`,
+    const response = await fetch(`${BASE_URL}/api/likes/status/?visitor=${visitorId}&property=${propertyId}`,
       {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
@@ -223,11 +223,11 @@ export const saveLike = async (likeData: LikeData) => {
   }
 };
 
+
 export const removeLike = async (likeData: LikeData) => {
   try {
-    const BASE_END_POINT_LOCAL = process.env.BASE_END_POINT_LOCAL!;
 
-    const response = await fetch(`${BASE_END_POINT_LOCAL}/api/likes/unlike/`, {
+    const response = await fetch(`${BASE_URL}/api/likes/unlike/`, {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -245,3 +245,64 @@ export const removeLike = async (likeData: LikeData) => {
   }
 };
 
+
+// Booking actions
+export const checkBookingStatus = async (visitorId: string, propertyId: string): Promise<boolean> => {
+  try {
+    console.log('visitorId:', visitorId);
+    console.log('propertyId:', propertyId);
+    
+    const response = await fetch(`${BASE_URL}/api/bookings/status/?visitor=${visitorId}&property=${propertyId}`, {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+    });
+
+    const data = await response.json();
+    return response.ok ? data.booked : false;
+  } catch (error) {
+    console.error('Error checking booking status:', error);
+    return false;
+  }
+};
+
+export const saveBooking = async (bookingData: { visitorId: string; propertyId: string }) => {
+  try {
+    const response = await fetch(`${BASE_URL}/api/bookings/`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        visitor: bookingData.visitorId,
+        property: bookingData.propertyId,
+      }),
+      credentials: 'include',
+    });
+
+    const data = await response.json();
+
+    return response.ok ? { success: true, data } : { success: false, error: data.error || 'Failed to book' };
+  } catch (error) {
+    console.error('Error saving booking:', error);
+    return { success: false, error: 'Something went wrong' };
+  }
+};
+
+export const removeBooking = async (bookingData: { visitorId: string; propertyId: string }) => {
+  try {
+    const response = await fetch(`${BASE_URL}/api/bookings/cancel/`, {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        visitor: bookingData.visitorId,
+        property: bookingData.propertyId,
+      }),
+      credentials: 'include',
+    });
+
+    const data = await response.json();
+    return response.ok ? { success: true } : { success: false, error: data.error || 'Failed to cancel booking' };
+  } catch (error) {
+    console.error('Error removing booking:', error);
+    return { success: false, error: 'Something went wrong' };
+  }
+};
