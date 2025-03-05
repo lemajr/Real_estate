@@ -15,6 +15,13 @@ import {
   Sparkles 
 } from "lucide-react"
 
+
+type CodeProps = {
+  inline?: boolean;
+  className?: string;
+  children?: React.ReactNode;
+}
+
 export default function Chat() {
   const [isChatOpen, setIsChatOpen] = useState(false)
   const { messages, input, handleInputChange, handleSubmit, isLoading, stop, reload, error } = useChat({ 
@@ -146,13 +153,14 @@ export default function Chat() {
             : "bg-gray-700/50 text-white"
         }`}
       >
+        
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}
           components={{
             p: ({ children }) => (
               <p className="text-white">{children}</p>
             ),
-            code: ({ inline, children, className, ...props }) => (
+            code: ({ inline, children, className, ...props }: CodeProps) => (
               inline ? (
                 <code
                   className={`bg-gray-800/50 px-1.5 py-0.5 rounded-md text-white ${className || ''}`}
