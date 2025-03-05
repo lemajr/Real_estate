@@ -23,19 +23,18 @@ const Contact = () => {
     setValue,
     formState: { errors },
     reset,
-    watch
+    watch,
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
   });
   const phoneValue = watch("phone");
 
-
   const onSubmit = async (formData: ContactFormData) => {
     setLoading(true);
-  
+
     try {
       const response = await getInToTouch(formData);
-  
+
       if (response.success) {
         toast.success(response.message.text);
         setValue("phone", "");
@@ -50,7 +49,6 @@ const Contact = () => {
     }
   };
 
-
   return (
     <main className="relative max-padd-container my-[99px] overflow-hidden">
       <div className=" max-md:py-2 xl:py-22 w-full bg-[#f8f9fa] ">
@@ -58,8 +56,9 @@ const Contact = () => {
           <div className="max-w-3xl mx-auto text-center pb-8">
             <h2 className="h2">Contact our team</h2>
             <h5 className="text-md">
-  Looking to buy, sell, or rent a property? Our experts are here to assist you every step of the way.  
-  Get in touch with us for personalized real estate solutions.
+              Looking to buy, sell, or rent a property? Our experts are here to
+              assist you every step of the way. Get in touch with us for
+              personalized real estate solutions.
             </h5>
           </div>
           <div className="max-w-4xl mx-auto flex flex-wrap gap-[6rem] mt-16 ">
@@ -123,7 +122,7 @@ const Contact = () => {
                   <PhoneInput
                     international
                     defaultCountry="TZ"
-                    value={phoneValue} 
+                    value={phoneValue}
                     onChange={(value) => setValue("phone", value ?? "")}
                     className="w-full p-3 border rounded-lg"
                   />

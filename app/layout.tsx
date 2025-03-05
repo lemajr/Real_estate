@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Providers from "@/providers";
 import { Toaster } from "@/components/ui/sonner";
+import Chat from "@/components/ai/chat";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -64,6 +65,7 @@ export default function RootLayout({
 
         <Header />
         {children}
+        <Chat />
         <Toaster />
         <Footer />
         </Providers>
