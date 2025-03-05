@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { MessageCircle, Send, Loader2, XCircle, Sparkles } from "lucide-react"
+import { MdArrowDownward } from "react-icons/md"
 
 type CodeProps = {
   inline?: boolean
@@ -84,7 +85,13 @@ export default function Chat() {
             animate={{ rotate: 360 }}
             transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
           />
-          <MessageCircle className="w-6 h-6 sm:w-8 sm:h-8 text-white relative z-10" />
+          {!isChatOpen ? (
+            <MessageCircle className="w-6 h-6 sm:w-8 sm:h-8 text-white relative z-10" />
+
+          ) : (
+
+          <MdArrowDownward className="w-6 h-6 sm:w-8 sm:h-8 text-white relative z-10 animate-bounce" />
+          )}
           <motion.div
             className="absolute -inset-1 bg-gradient-to-r from-purple-500 to-cyan-500 blur opacity-75"
             animate={{ scale: [1, 1.2, 1] }}
